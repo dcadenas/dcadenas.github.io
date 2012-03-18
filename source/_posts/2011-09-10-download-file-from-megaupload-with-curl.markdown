@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Download a file from upload or file sonic with curl"
+title: "Download a file from Wupload or Filesonic with curl"
 date: 2011-09-10T16:42:00-03:00
 ---
 Wupload:
