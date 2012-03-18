@@ -6,6 +6,11 @@ $root = ::File.dirname(__FILE__)
 
 class SinatraStaticServer < Sinatra::Base  
 
+  get('/public.key') do
+    content_type 'text/html'
+    send_sinatra_file('public.key') {404}
+  end
+
   get(/.+/) do
     send_sinatra_file(request.path) {404}
   end
