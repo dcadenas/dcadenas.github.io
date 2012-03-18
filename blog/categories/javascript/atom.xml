@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | Daniel Cadenas]]></title>
   <link href="http://dcadenas.github.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://dcadenas.github.com/"/>
-  <updated>2012-03-18T00:25:13-03:00</updated>
+  <updated>2012-03-18T00:49:12-03:00</updated>
   <id>http://dcadenas.github.com/</id>
   <author>
     <name><![CDATA[Daniel Cadenas]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[CORS with Ext.js]]></title>
+    <link href="http://dcadenas.github.com/blog/2011/10/11/cors-with-extjs/"/>
+    <updated>2011-10-11T19:04:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2011/10/11/cors-with-extjs</id>
+    <content type="html"><![CDATA[<p><code>javascript
+Ext.Ajax.useDefaultXhrHeader = false
+Ext.Ajax.request({url:'http://ipv4.0-9.fi', success: function(res,req){alert(res.responseText)}})
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reverse Ajax and Prototype with Mongrel handlers]]></title>

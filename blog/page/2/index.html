@@ -9,9 +9,14 @@
   <meta name="author" content="Daniel Cadenas">
 
   
-  <meta name="description" content="To tunnel through ssh do: 1
-ssh -v -nNT4 -R :4007:localhost:3000 myhost which maps the remote port 4007 to the local port 3000.
-myhost is the host &hellip;">
+  <meta name="description" content="I use this bash functions to open vim with splits for each file in which grep or rak find the pattern I&#8217;m searching for: 1
+2
+3
+4
+5
+6
+7
+grepvim &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -32,6 +37,18 @@ myhost is the host &hellip;">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1886130-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -66,6 +83,59 @@ myhost is the host &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/22/some-useful-bash-functions/">Some Useful Bash Functions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-22T19:12:00-03:00" pubdate data-updated="true">May 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use this bash functions to open vim with splits for each file in which grep or rak find the pattern I&#8217;m searching for:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>grepvim<span class="o">(){</span>
+</span><span class='line'>  grep -rl <span class="s2">&quot;$1&quot;</span> <span class="nv">$2</span>| xargs mvim -o +/<span class="s2">&quot;$1&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>rakvim<span class="o">(){</span>
+</span><span class='line'>  rak -l <span class="s2">&quot;$1&quot;</span> <span class="nv">$2</span>| xargs mvim -o +/<span class="s2">&quot;$1&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -542,47 +612,6 @@ So in summary, change this:</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/09/19/good-tip-about-encapsulation/">Tip About Encapsulation</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-09-19T18:46:00-03:00" pubdate data-updated="true">Sep 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was reading and <a href="http://www.martinfowler.com/bliki/GetterEradicator.html">article</a> about encapsulation on Martin Fowler&#8217;s blog when I found this simple and practical tip:</p>
-
-<blockquote><p>Always beware of cases where some code invokes more than one method on the same object</p><footer><strong>Kent Beck</strong> <cite><a href='http://www.martinfowler.com/bliki/GetterEradicator.html'>www.martinfowler.com/bliki/&hellip;</a></cite></footer></blockquote>
-
-
-<p>It&#8217;s not a rule but I think it can be considered one more code smell to keep in mind.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -600,6 +629,10 @@ So in summary, change this:</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/03/18/test/">test</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/03/16/moving-to-github-pages-and-octopress/">Moved to github pages and Octopress</a>
       </li>
     
@@ -612,11 +645,7 @@ So in summary, change this:</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2011/09/10/download-file-from-megaupload-with-curl/">Download a file from upload or file sonic with curl</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/03/09/valgrind-on-your-ruby-extension-test/">Valgrind on your ruby extension test</a>
+        <a href="/blog/2011/09/10/download-file-from-megaupload-with-curl/">Download a file from Wupload or Filesonic with curl</a>
       </li>
     
   </ul>

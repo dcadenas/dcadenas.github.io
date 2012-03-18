@@ -9,7 +9,18 @@
   <meta name="author" content="Daniel Cadenas">
 
   
-  <meta name="description" content="I&#8217;m currently working in a project for a client bank. Some days ago we had a meeting where they showed us their IT&#8217;s organizational chart &hellip;">
+  <meta name="description" content="This is a handy code that wraps a string with CDATA escaping any CDATA inside it: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+public static string CData(string data)
+{ if ( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -30,6 +41,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1886130-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -64,6 +87,65 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/11/13/escaping/">Escaping CDATA</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-13T23:13:00-02:00" pubdate data-updated="true">Nov 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is a handy code that wraps a string with CDATA escaping any CDATA inside it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">CData</span><span class="p">(</span><span class="kt">string</span> <span class="n">data</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">string</span> <span class="n">result</span> <span class="p">=</span> <span class="n">Regex</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">&quot;]]&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;]]]]&gt;&lt;![CDATA[&gt;&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="s">&quot;&lt;![CDATA[&quot;</span> <span class="p">+</span> <span class="n">result</span> <span class="p">+</span> <span class="s">&quot;]]&gt;&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -636,6 +718,10 @@ So if we have an architect that is not involved in programming we&#8217;ll get t
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/03/18/test/">test</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/03/16/moving-to-github-pages-and-octopress/">Moved to github pages and Octopress</a>
       </li>
     
@@ -648,11 +734,7 @@ So if we have an architect that is not involved in programming we&#8217;ll get t
       </li>
     
       <li class="post">
-        <a href="/blog/2011/09/10/download-file-from-megaupload-with-curl/">Download a file from upload or file sonic with curl</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/03/09/valgrind-on-your-ruby-extension-test/">Valgrind on your ruby extension test</a>
+        <a href="/blog/2011/09/10/download-file-from-megaupload-with-curl/">Download a file from Wupload or Filesonic with curl</a>
       </li>
     
   </ul>

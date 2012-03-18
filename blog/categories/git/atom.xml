@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ssh git capistrano | Daniel Cadenas]]></title>
-  <link href="http://dcadenas.github.com/blog/categories/ssh-git-capistrano/atom.xml" rel="self"/>
+  <title><![CDATA[Category: git | Daniel Cadenas]]></title>
+  <link href="http://dcadenas.github.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://dcadenas.github.com/"/>
-  <updated>2012-03-18T00:25:13-03:00</updated>
+  <updated>2012-03-18T00:49:12-03:00</updated>
   <id>http://dcadenas.github.com/</id>
   <author>
     <name><![CDATA[Daniel Cadenas]]></name>
