@@ -1,0 +1,22 @@
+---
+layout: post
+title: "Escaping CDATA"
+date: 2007-11-13T23:13:00-02:00
+categories:
+ - CDATA
+ - Xml
+---
+This is a handy code that wraps a string with CDATA escaping any CDATA inside it:
+
+```c#
+public static string CData(string data)
+{
+    if (string.IsNullOrEmpty(data))
+    {
+        return string.Empty;
+    }
+
+    string result = Regex.Replace(data, "]]>", "]]]]><![CDATA[>");
+    return "<![CDATA[" + result + "]]>";
+}
+```

@@ -1,0 +1,177 @@
+---
+layout: post
+title: "Ruby"
+date: 2007-10-28T03:59:00-02:00
+categories:
+ - Ruby
+ - C#
+ - Duck typing
+---
+My new toy is the Ruby language (I know, toys are a serious thing). I'm experimenting a bit, trying to see why all the fuss. Until now I like what I see. It's my first experience with a dynamic language and I feel quite comfortable with it. What I like most until now is duck typing, and no, it's not a typo, I really mean duck, the animal.
+
+<img style="float:left; margin-right: 15px" src="http://2.bp.blogspot.com/_Jy_WaM9LS-I/RyVUf3hHWEI/AAAAAAAAAU8/GMqjCQbJgBs/s200/duck.gif" />
+
+This comes from the more pure concept of interface in which you consider that two different objects have the same interface if they respond to the same messages, to the same way of interacting, of talking to them.
+
+The duck analogy comes from saying that if something looks like a duck, then it's a duck. So in Ruby you don't need to define interfaces the way C#/Java does. Interfaces exist but you don't define them, they are already there, conceptually.
+
+The biggest advantage I see about this is that the effort needed to assure that your design is low coupled is greatly reduced. Any object can be substituted by any other that implements the required methods without extra work. This dramatically improves your efficiency when making changes and evolving your design and testing gets easier.
+
+Let's compare a bit C# and Ruby interfaces:
+
+```c#
+interface Cuackable
+{
+  void Cuack();
+}
+
+class ADuck : Cuackable
+{
+  public void Cuack()
+  {
+    //cuack the ADuck way
+  }
+
+  public void Swim()
+  {
+    //swim the ADuck way
+  }
+}
+
+class BDuck : Cuackable
+{
+  public void Cuack()
+  {
+    //cuack the BDuck way
+  }
+
+  public void Swim()
+  {
+    //swim the BDuck way
+  }
+}
+```
+
+So if you need the `Cuackable` interface from your client code, you declare a variable or parameter that will eventually hold an `ADuck` or `BDuck` implementation.
+
+**The compiler** knows you can use `ADuck` or `BDuck` because they declare they implement the needed interface.
+
+**You** know you can use `ADuck` or `BDuck` because they implement the method signatures that you need. So there's a mismatch between the way you think of the interface and the way the compiler does (Ruby doesn't have this mismatch, we'll see this later).
+
+What happens if now you realize that `Swim` should be part of another interface? Well then you'll have to define a new `Swimable` interface and define `Swim` as it's only member. You'll also need to implement that interface in each of the classes that implement the method and you'll also need to make the clients use that interface.
+
+```c#
+interface Cuackable
+{
+  void Cuack();
+}
+
+interface Swimable
+{
+  void Swim();
+}
+
+class ADuck : Cuackable, Swimable
+{
+  public void Cuack()
+  {
+    //cuack the ADuck way
+  }
+
+  public void Swim()
+  {
+    //swim the ADuck way
+  }
+}
+
+class BDuck : Cuackable, Swimable
+{
+  public void Cuack()
+  {
+    //cuack the BDuck way
+  }
+
+  public void Swim()
+  {
+    //swim the BDuck way
+  }
+}
+```
+Now imagine that you have a third client method that requires to use both `Cuack` and `Swim`. In that case you'd have to pass the same object in two parameters to the client method:
+
+```c#
+void ClientMethod(Cuackable cuackable, Swimable swimable)
+{
+  //code
+  cuackable.Cuack();
+  //...
+  swimable.Swim();
+  //more code
+}
+
+//later you could call ClientMethod with the same object if you think that's correct...
+aDuck = new ADuck();
+ClientMethod(aDuck, aDuck)
+
+//or with different objects if that's what's intended...
+ClientMethod(new ADuck(), new BDuck());
+```
+Another alternative for the first example, although not the same, is creating another new interface that joins `Cuackable` and `Swimable`, a good name would be, ermmm... `Duck`. Then now you'd be implementing three different interfaces, all describing the different ways your client code can see your objects.
+
+This grows exponentially being the number of possible interfaces `2^n - 1`, where `n` is the number of public methods. Of course your clients see them only in the subset of `2^n - 1` that is useful to them, but this will be still a big number in non trivial systems, always assuming that you really believe in object polymorphism and the [interface segregation principle](http://www.objectmentor.com/resources/articles/isp.pdf) which encourages having small interfaces.
+
+It's quite clear that such a big number of interfaces is impractical to handle in this type of strongly typed languages so we usually change the way we design to cope with this programming infrastructure problem and we start violating principles of good design. The most common solution to this is having huge interfaces with clients that, of course, just use a subset of them. This is, among other problems, a manteinance nightmare. But a smaller nightmare than the more correct alternative of having one interface for each method.
+
+Ruby's duck typing
+------------------
+
+Let's see the previous code in it's Ruby version:
+
+```ruby
+class ADuck
+  def cuack
+    #cuack the ADuck way
+  end
+
+  def swim
+    #swim the ADuck way
+  end
+end
+
+class BDuck
+  def cuack
+    #cuack the BDuck way
+  end
+
+  def swim
+    #swim the BDuck way
+  end
+end
+
+def client_method(can_cuack_and_swim)
+  #code
+  can_cuack_and_swim.cuack
+  #...
+  can_cuack_and_swim.swim
+  #more code
+end
+
+client_method(ADuck.new)
+
+#or you can split it in two like the previous C# example
+
+def client_method(can_cuack, can_swim)
+  #code
+  can_cuack.cuack
+  #...
+  can_swim.swim
+  #more code
+end
+
+client_method(ADuck.new, BDuck.new)
+```
+As you can see, we don't define interfaces, they are implicitly there because as we said earlier, interfaces are defined by the clients. 
+
+`client_method` just asks that the object that is passed as a parameter implements the required method. If you create a new class that implements those required methods, then you implement `client_method` required interface, your client sees a duck because your object behaves the way it expects, like a duck, no more extra work for creating and mantaining your classes interfaces. 
+
+This is simplicity and programmer friendliness, from there you get easier abstraction, free low coupling and the resultant increase in quality and productivity in the right way.

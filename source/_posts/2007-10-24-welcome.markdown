@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Welcome!"
+date: 2007-10-24T01:06:00-02:00
+---
+Welcome to my technical blog!
+
+Here I intend to have a place to write about all the things I find interesting in my profession. Next, I hope my posts are also interesting. My second objective is having a place to keep all those code snippets and small tips we all learn while working, which in my case are usually spread between books, computer files, notes, torn papers, and the most volatile of them all, my head. I just hope I don't forget my `url`.
