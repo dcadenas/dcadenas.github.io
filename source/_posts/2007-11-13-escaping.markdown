@@ -5,6 +5,7 @@ date: 2007-11-13T23:13:00-02:00
 categories:
  - CDATA
  - Xml
+comments: true
 ---
 This is a handy code that wraps a string with CDATA escaping any CDATA inside it:
 

@@ -6,6 +6,7 @@ categories:
  - Testing
  - Ruby
  - mocha
+comments: true
 ---
 If you use stubs in your Mocha tests but they break because of this error:
 

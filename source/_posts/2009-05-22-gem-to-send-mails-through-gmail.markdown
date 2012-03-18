@@ -4,6 +4,7 @@ title: "Gem to send mails through Gmail"
 date: 2009-05-22T19:23:00-03:00
 categories:
  - Ruby
+comments: true
 ---
 I made this little gem, `gmail_sender` that I find useful to log things when I'm running some script in my VPS, I use it for things like this:
 

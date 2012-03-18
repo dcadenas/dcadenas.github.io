@@ -4,6 +4,7 @@ title: "Architects and programmers"
 date: 2007-11-09T19:48:00-02:00
 categories:
  - Design
+comments: true
 ---
 I'm currently working in a project for a client bank. Some days ago we had a meeting where they showed us their IT's organizational chart which had been recently updated. They had two departments, one of them was made by business analysts and software architects, and the other department is the software factory where programmers are supposed to be. I interpreted that they were even physically two different sections. I'm not sure if I'm alone in this but I think this separation is wrong. I think that architects belong to the same space as developers because they are essentially the same thing.
 

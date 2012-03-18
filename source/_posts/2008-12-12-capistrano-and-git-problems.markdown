@@ -3,7 +3,9 @@ layout: post
 title: "Capistrano and Git problems"
 date: 2008-12-12T15:51:00-02:00
 categories:
- - ssh git capistrano
+ - ssh
+ - git
+comments: true
 ---
 If you get this error when deploying with Capistrano:
 

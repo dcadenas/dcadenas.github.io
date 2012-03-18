@@ -4,6 +4,7 @@ title: "Tip about encapsulation"
 date: 2008-09-19T18:46:00-03:00
 categories:
  - Design
+comments: true
 ---
 I was reading and [article](http://www.martinfowler.com/bliki/GetterEradicator.html) about encapsulation on Martin Fowler's blog when I found this simple and practical tip:
 

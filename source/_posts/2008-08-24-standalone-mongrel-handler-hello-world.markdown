@@ -4,6 +4,7 @@ title: "Standalone Mongrel handler Hello World"
 date: 2008-08-24T14:00:00-03:00
 categories:
  - mongrel
+comments: true
 ---
 I think this is the simplest Mongrel handler you can create. It doesn't depend on Rails so this is not what you need to write if you want to install a Rails friendly Mongrel handler.
 

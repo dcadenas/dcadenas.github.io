@@ -6,6 +6,7 @@ categories:
  - Ruby
  - C#
  - Duck typing
+comments: true
 ---
 My new toy is the Ruby language (I know, toys are a serious thing). I'm experimenting a bit, trying to see why all the fuss. Until now I like what I see. It's my first experience with a dynamic language and I feel quite comfortable with it. What I like most until now is duck typing, and no, it's not a typo, I really mean duck, the animal.
 

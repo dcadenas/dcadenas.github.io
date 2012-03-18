@@ -5,6 +5,7 @@ date: 2007-12-08T19:09:00-02:00
 categories:
  - Refactoring
  - Design
+comments: true
 ---
 Some points of disagreement with the critique against the [refactoring book](http://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Technology/dp/0201485672) found in [this article about smells](http://www.codinghorror.com/blog/archives/000589.html).
 

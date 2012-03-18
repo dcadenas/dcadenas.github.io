@@ -4,6 +4,7 @@ title: "More about architects"
 date: 2007-12-04T23:31:00-02:00
 categories:
  - Design
+comments: true
 ---
 I found [this](http://martinfowler.com/ieeeSoftware/whoNeedsArchitect.pdf) great Fowler's article which I think compliments well with my [previous post](/blog/2007/11/09/architects-and-programmers) saying that architects are programmers.
 

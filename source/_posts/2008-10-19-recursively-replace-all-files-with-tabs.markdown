@@ -4,6 +4,7 @@ title: "Recursively replace all files with tabs in Linux"
 date: 2008-10-19T23:58:00-02:00
 categories:
  - linux
+comments: true
 ---
 Ok I don't want to forget this ever again so I will write it here.
 

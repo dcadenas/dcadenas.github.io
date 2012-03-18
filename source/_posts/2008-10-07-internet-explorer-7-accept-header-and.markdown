@@ -2,6 +2,7 @@
 layout: post
 title: "Internet Explorer 7 accept header and Rails respond_to"
 date: 2008-10-07T20:00:00-02:00
+comments: true
 ---
 If you browse through IE to an url that should spit html but instead you see the feed reader page (the one with the text "You are viewing a feed that contains frequently updated content") then just be sure that the page's `respond_to` has the html mime type as its first item instead of `atom` or `rss`.
 

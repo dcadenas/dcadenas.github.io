@@ -4,6 +4,7 @@ title: "One thing to keep in mind when extending Ruby classes"
 date: 2008-10-06T02:07:00-02:00
 categories:
  - Ruby
+comments: true
 ---
 I was reading this [post](http://eigenclass.org/hiki/class+hierarchy+introspection+evil.rb) in Mauricio Fernandez's blog (rcov) and I got surprised about the behavior I'm summarizing in the following code:
 

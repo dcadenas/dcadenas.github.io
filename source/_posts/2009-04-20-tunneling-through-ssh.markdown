@@ -2,6 +2,9 @@
 layout: post
 title: "Tunneling through SSH"
 date: 2009-04-20T17:45:00-03:00
+categories:
+ - sysadmin
+comments: true
 ---
 To tunnel through ssh do:
 ```bash

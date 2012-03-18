@@ -4,6 +4,7 @@ title: "Functional programming"
 date: 2007-11-04T08:02:00-02:00
 categories:
  - Functional programming
+comments: true
 ---
 I remember making a Mastermind solving program in Erlang some years ago back in university. I enjoyed it a lot and I thought it was a shame that the functional programming paradigm was not mainstream.
 

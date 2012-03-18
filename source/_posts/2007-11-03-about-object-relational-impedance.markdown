@@ -5,6 +5,7 @@ date: 2007-11-03T00:52:00-02:00
 categories:
  - Design
  - DDD
+comments: true
 ---
 I agree 100% with [this Bob Martin's post](http://blog.objectmentor.com/articles/2007/11/02/active-record-vs-objects) about the problems that arise when using the Active Record data layer pattern.
 

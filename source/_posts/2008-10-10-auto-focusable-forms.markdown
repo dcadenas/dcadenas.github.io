@@ -5,6 +5,7 @@ date: 2008-10-10T23:13:00-02:00
 categories:
  - plugin
  - rails
+comments: true
 ---
 Just commited a Rails plugin (my first one, yay!!) to give automatic focus to the first input of the first form in each of your views.
 

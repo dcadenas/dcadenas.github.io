@@ -7,6 +7,7 @@ categories:
  - Testing
  - Ruby
  - mocha
+comments: true
 ---
 As far as google told me, it seems you can't use Mocha against constants.
 

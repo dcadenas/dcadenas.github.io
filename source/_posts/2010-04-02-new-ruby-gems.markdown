@@ -5,6 +5,7 @@ date: 2010-04-02T16:45:00-03:00
 categories:
  - Ruby
  - Cubox
+comments: true
 ---
 Oops! It's been a while since the last time I updated my blog.
 I promise I'll try to get back to business and write more often whenever I find some time.

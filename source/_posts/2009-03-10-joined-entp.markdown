@@ -4,6 +4,7 @@ title: "Joined ENTP!"
 date: 2009-03-10T01:39:00-03:00
 categories:
  - ENTP
+comments: true
 ---
 Oh I just realized that I never wrote a post about me joining [ENTP](http://entp.com) 4 months ago!!
 

@@ -5,6 +5,7 @@ date: 2007-12-03T02:21:00-02:00
 categories:
  - Refactoring
  - Design
+comments: true
 ---
 For a lot of people refactoring is not important. For some people this is because they don't know the correct meaning. They think it's just the name someone made up to describe any code change.
 
