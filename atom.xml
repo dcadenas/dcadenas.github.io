@@ -4,7 +4,7 @@
   <title><![CDATA[Daniel Cadenas]]></title>
   <link href="http://dcadenas.github.com/atom.xml" rel="self"/>
   <link href="http://dcadenas.github.com/"/>
-  <updated>2012-03-18T00:49:12-03:00</updated>
+  <updated>2012-03-18T00:54:30-03:00</updated>
   <id>http://dcadenas.github.com/</id>
   <author>
     <name><![CDATA[Daniel Cadenas]]></name>
@@ -12,15 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[test]]></title>
-    <link href="http://dcadenas.github.com/blog/2012/03/18/test/"/>
-    <updated>2012-03-18T00:46:00-03:00</updated>
-    <id>http://dcadenas.github.com/blog/2012/03/18/test</id>
-    <content type="html"><![CDATA[<p>this is a test</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Moved to github pages and Octopress]]></title>
@@ -437,6 +428,20 @@ So in summary, change this:</p>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">stub</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s1">&#39;a title&#39;</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="no">News</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tip about encapsulation]]></title>
+    <link href="http://dcadenas.github.com/blog/2008/09/19/good-tip-about-encapsulation/"/>
+    <updated>2008-09-19T18:46:00-03:00</updated>
+    <id>http://dcadenas.github.com/blog/2008/09/19/good-tip-about-encapsulation</id>
+    <content type="html"><![CDATA[<p>I was reading and <a href="http://www.martinfowler.com/bliki/GetterEradicator.html">article</a> about encapsulation on Martin Fowler&#8217;s blog when I found this simple and practical tip:</p>
+
+<blockquote><p>Always beware of cases where some code invokes more than one method on the same object</p><footer><strong>Kent Beck</strong> <cite><a href='http://www.martinfowler.com/bliki/GetterEradicator.html'>www.martinfowler.com/bliki/&hellip;</a></cite></footer></blockquote>
+
+
+<p>It&#8217;s not a rule but I think it can be considered one more code smell to keep in mind.</p>
 ]]></content>
   </entry>
   
