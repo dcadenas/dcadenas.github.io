@@ -8,7 +8,8 @@ class SinatraStaticServer < Sinatra::Base
 
   get('/public.key') do
     content_type 'text/html'
-    send_sinatra_file('public.key') {404}
+    'test'
+    #send_sinatra_file('public.key') {404}
   end
 
   get(/.+/) do
