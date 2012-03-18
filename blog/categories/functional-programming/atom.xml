@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Functional programming | Daniel Cadenas]]></title>
+  <link href="http://dcadenas.github.com/blog/categories/functional-programming/atom.xml" rel="self"/>
+  <link href="http://dcadenas.github.com/"/>
+  <updated>2012-03-18T00:25:13-03:00</updated>
+  <id>http://dcadenas.github.com/</id>
+  <author>
+    <name><![CDATA[Daniel Cadenas]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Functional programming]]></title>
+    <link href="http://dcadenas.github.com/blog/2007/11/04/functional-programming/"/>
+    <updated>2007-11-04T08:02:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2007/11/04/functional-programming</id>
+    <content type="html"><![CDATA[<p>I remember making a Mastermind solving program in Erlang some years ago back in university. I enjoyed it a lot and I thought it was a shame that the functional programming paradigm was not mainstream.</p>
+
+<p>Luckily it seems times are changing and you can find that Erlang is getting more popular, DSLs are getting attention (so Lisp will gain it too) and Microsoft seems to be slowly trying to put his own functional language, F# (ML), at the same level of C#.</p>
+
+<p>So while surfing the web about this interesting times I found <a href="http://www.defmacro.org/ramblings/articles.html">this</a> very pleasant to read web page that can make you recover from your imperative programming comma. Good reading!</p>
+]]></content>
+  </entry>
+  
+</feed>

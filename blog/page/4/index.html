@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Daniel Cadenas</title>
+  <meta name="author" content="Daniel Cadenas">
+
+  
+  <meta name="description" content="I&#8217;m currently working in a project for a client bank. Some days ago we had a meeting where they showed us their IT&#8217;s organizational chart &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dcadenas.github.com/blog/page/4">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Daniel Cadenas" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Daniel Cadenas</a></h1>
+  
+    <h2>My technical blog.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dcadenas.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/11/09/architects-and-programmers/">Architects and Programmers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-09T19:48:00-02:00" pubdate data-updated="true">Nov 9<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m currently working in a project for a client bank. Some days ago we had a meeting where they showed us their IT&#8217;s organizational chart which had been recently updated. They had two departments, one of them was made by business analysts and software architects, and the other department is the software factory where programmers are supposed to be. I interpreted that they were even physically two different sections. I&#8217;m not sure if I&#8217;m alone in this but I think this separation is wrong. I think that architects belong to the same space as developers because they are essentially the same thing.</p>
+
+<h2>Architects are programmers</h2>
+
+<p>We should notice that architecture is a subset of design which implies that an architect is a designer. Now, if we agree that <a href="http://www.developerdotstar.com/mag/articles/reeves_design_main.html">programmers are the designers of software</a> then a good programmer that is capable of designing this subset, is an architect. Also notice that there are no good architects that are bad programmers. Being a good programmer is a prerequisite for being an architect.</p>
+
+<p><img class="center" src="/images/arch.gif"></p>
+
+<p>So a programming language is not more nor less than a software design language.
+Of course there are other tools to design software (diagrams, etc), but a programming language is better as its product is the only design representation that is directly interpreted by the computer and the only one that has a 1 on 1 relation between what you expect and what you get.
+Used correctly, they are better at communicating a design than the alternatives.</p>
+
+<p>So architects should program but they also should do it in the same physical space as the rest of programmers. Not only because they have to communicate their ideas but also for two extra benefits:</p>
+
+<ul>
+<li><p>Feedback.
+Probably the most essential characteristic of software design is that it evolves by iterating. Even when doing waterfall, you evolve and iterate (the problem is that you stop too early doing so and you do it on paper). This evolution can only be done with realtime feedback and you won&#8217;t get feedback if you are not inspecting and touching the guts of your child.
+You can only assess the correctness of your initial &#8220;paper level architecture&#8221; with the detailed &#8220;code level architecture&#8221;, you should have a deep understanding of the most real representation of your architecture so you can be able to gather immediate feedback both against interpretation errors when some developer didn&#8217;t understand you and against your own errors. Even if you are errorless (I don&#8217;t believe that), feedback lets you learn about the domain and improve continuously your design.</p></li>
+<li><p>Maximizing transfer of expertise and knowledge.
+If an architect is just a good and respected developer, then why not transfer its merits to the teammates. This would end up being a win-win situation because they&#8217;ll keep improving and they know they will be responsible for the general improvement. The waste and problems that represent using programmers as if they were code generation tools is as silly as having not programming architects. Their design abilities must be improved. If they can&#8217;t improve, well, then they are too stupid and risky even as a code generation tool, so don&#8217;t hire them if you don&#8217;t intend to use them as architects.</p></li>
+</ul>
+
+
+<h2>The separation problem</h2>
+
+<p>Divide and conquer it&#8217;s a great heuristic. But if you fail to spot the point in which you should stop dividing, then it&#8217;s counterproductive. Some things belong together. And when those things are split you&#8217;ll find problems.
+So if we have an architect that is not involved in programming we&#8217;ll get two situations:</p>
+
+<ul>
+<li><p>We have an good programmer, maybe the best in our company, that is being used only for writing word documents and making presentations and diagrams. This is any design representation you imagine except the one in which he is good at and at the same time the one that is the more important and cannot be skipped. Yes, this is the one that is least understood by other departments of the company, but the architect role should be constructing software, his main target of communication are the programmers from the trenches. Communication with the rest is secondary.</p></li>
+<li><p>We have a bad programmer that was choosen for some reason to make the architecture of the system. Let&#8217;s not extend on this for obvious reasons.</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/11/04/functional-programming/">Functional Programming</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-04T08:02:00-02:00" pubdate data-updated="true">Nov 4<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I remember making a Mastermind solving program in Erlang some years ago back in university. I enjoyed it a lot and I thought it was a shame that the functional programming paradigm was not mainstream.</p>
+
+<p>Luckily it seems times are changing and you can find that Erlang is getting more popular, DSLs are getting attention (so Lisp will gain it too) and Microsoft seems to be slowly trying to put his own functional language, F# (ML), at the same level of C#.</p>
+
+<p>So while surfing the web about this interesting times I found <a href="http://www.defmacro.org/ramblings/articles.html">this</a> very pleasant to read web page that can make you recover from your imperative programming comma. Good reading!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/11/03/about-object-relational-impedance/">About the Object-relational Impedance Mismatch</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-03T00:52:00-02:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I agree 100% with <a href="http://blog.objectmentor.com/articles/2007/11/02/active-record-vs-objects">this Bob Martin&#8217;s post</a> about the problems that arise when using the Active Record data layer pattern.</p>
+
+<p>I think Active Record&#8217;s problems come from implementing it from the beginning of your project which has the risk of biasing your design towards a weak domain model. You will tend to make design decisions that fit well with Active Record and it will be more difficult to realize you should be refactoring towards having a domain model.</p>
+
+<p>You can&#8217;t be sure whether your app will be really data-centric until it&#8217;s finished and the most flexible design to cope with this doubt is <strong>starting</strong> with the <strong>simplest</strong> domain model. If at the end it gets anemic and you don&#8217;t find it&#8217;s behaviour outside, possibly in a service layer, then you can substitute it with the data layer, which could be Active Record.</p>
+
+<p>So I like Martin&#8217;s idea of considering the datalayer as an implementation detail. It may be an important detail, but details don&#8217;t belong to abstractions, and if you mix them you fix&#8217;em (sorry couldn&#8217;t avoid that).</p>
+
+<p>It&#8217;s easier to start flexible and then tighten than start tight and then get flexible. So I think it&#8217;s easier to add Active Records to your domain models than adding a domain model to your Active Records. And you&#8217;ll have the advantage that you are not tied with a particular Active Record implementation.</p>
+
+<p>I&#8217;d use a pure AR solution only if I&#8217;m very very sure that I&#8217;m dealing with a simple CRUD that won&#8217;t change in the future, and even then I&#8217;d feel uncomfortable. The application may be data centric now but you can&#8217;t be sure if it will keep being that way in the future. You don&#8217;t know that even if you are the only client of the app.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/10/29/ruby-and-dsls/">Ruby and DSLs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-29T00:38:00-02:00" pubdate data-updated="true">Oct 29<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.xaop.com/articles/2007/10/07/metaprogramming">Here</a> you can see an excelent screencast by Peter Vanbroekhoven about creating DSLs in Ruby. This is another appealing aspect of the language. At work I program mainly in C# and I couldn&#8217;t avoid comparing his example with Linq. I still didn&#8217;t put my hands deeply on Linq, and I guess it must be much bigger than Peter&#8217;s example but I can&#8217;t avoid being amazed at the simplicity in which he shows how to have your own hand made Linq in Ruby with very little work.</p>
+
+<p>So Ruby seems to be not just a programming language, it&#8217;s a DSL programming language which it&#8217;s something extremely powerful due to the productivity and readability that brings the higher level of abstraction. That&#8217;s always good.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/10/28/ruby/">Ruby</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-28T03:59:00-02:00" pubdate data-updated="true">Oct 28<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My new toy is the Ruby language (I know, toys are a serious thing). I&#8217;m experimenting a bit, trying to see why all the fuss. Until now I like what I see. It&#8217;s my first experience with a dynamic language and I feel quite comfortable with it. What I like most until now is duck typing, and no, it&#8217;s not a typo, I really mean duck, the animal.</p>
+
+<p><img style="float:left; margin-right: 15px" src="http://2.bp.blogspot.com/_Jy_WaM9LS-I/RyVUf3hHWEI/AAAAAAAAAU8/GMqjCQbJgBs/s200/duck.gif" /></p>
+
+<p>This comes from the more pure concept of interface in which you consider that two different objects have the same interface if they respond to the same messages, to the same way of interacting, of talking to them.</p>
+
+<p>The duck analogy comes from saying that if something looks like a duck, then it&#8217;s a duck. So in Ruby you don&#8217;t need to define interfaces the way C#/Java does. Interfaces exist but you don&#8217;t define them, they are already there, conceptually.</p>
+
+<p>The biggest advantage I see about this is that the effort needed to assure that your design is low coupled is greatly reduced. Any object can be substituted by any other that implements the required methods without extra work. This dramatically improves your efficiency when making changes and evolving your design and testing gets easier.</p>
+
+<p>Let&#8217;s compare a bit C# and Ruby interfaces:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">interface</span> <span class="n">Cuackable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Cuack</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ADuck</span> <span class="p">:</span> <span class="n">Cuackable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">Cuack</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//cuack the ADuck way</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">Swim</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//swim the ADuck way</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">BDuck</span> <span class="p">:</span> <span class="n">Cuackable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">Cuack</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//cuack the BDuck way</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">Swim</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//swim the BDuck way</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So if you need the <code>Cuackable</code> interface from your client code, you declare a variable or parameter that will eventually hold an <code>ADuck</code> or <code>BDuck</code> implementation.</p>
+
+<p><strong>The compiler</strong> knows you can use <code>ADuck</code> or <code>BDuck</code> because they declare they implement the needed interface.</p>
+
+<p><strong>You</strong> know you can use <code>ADuck</code> or <code>BDuck</code> because they implement the method signatures that you need. So there&#8217;s a mismatch between the way you think of the interface and the way the compiler does (Ruby doesn&#8217;t have this mismatch, we&#8217;ll see this later).</p>
+
+<p>What happens if now you realize that <code>Swim</code> should be part of another interface? Well then you&#8217;ll have to define a new <code>Swimable</code> interface and define <code>Swim</code> as it&#8217;s only member. You&#8217;ll also need to implement that interface in each of the classes that implement the method and you&#8217;ll also need to make the clients use that interface.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">interface</span> <span class="n">Cuackable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Cuack</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">interface</span> <span class="n">Swimable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Swim</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ADuck</span> <span class="p">:</span> <span class="n">Cuackable</span><span class="p">,</span> <span class="n">Swimable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">Cuack</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//cuack the ADuck way</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">Swim</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//swim the ADuck way</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">BDuck</span> <span class="p">:</span> <span class="n">Cuackable</span><span class="p">,</span> <span class="n">Swimable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">Cuack</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//cuack the BDuck way</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">Swim</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="c1">//swim the BDuck way</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now imagine that you have a third client method that requires to use both <code>Cuack</code> and <code>Swim</code>. In that case you&#8217;d have to pass the same object in two parameters to the client method:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">void</span> <span class="nf">ClientMethod</span><span class="p">(</span><span class="n">Cuackable</span> <span class="n">cuackable</span><span class="p">,</span> <span class="n">Swimable</span> <span class="n">swimable</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//code</span>
+</span><span class='line'>  <span class="n">cuackable</span><span class="p">.</span><span class="n">Cuack</span><span class="p">();</span>
+</span><span class='line'>  <span class="c1">//...</span>
+</span><span class='line'>  <span class="n">swimable</span><span class="p">.</span><span class="n">Swim</span><span class="p">();</span>
+</span><span class='line'>  <span class="c1">//more code</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//later you could call ClientMethod with the same object if you think that&#39;s correct...</span>
+</span><span class='line'><span class="n">aDuck</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ADuck</span><span class="p">();</span>
+</span><span class='line'><span class="n">ClientMethod</span><span class="p">(</span><span class="n">aDuck</span><span class="p">,</span> <span class="n">aDuck</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//or with different objects if that&#39;s what&#39;s intended...</span>
+</span><span class='line'><span class="n">ClientMethod</span><span class="p">(</span><span class="k">new</span> <span class="n">ADuck</span><span class="p">(),</span> <span class="k">new</span> <span class="n">BDuck</span><span class="p">());</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Another alternative for the first example, although not the same, is creating another new interface that joins <code>Cuackable</code> and <code>Swimable</code>, a good name would be, ermmm&#8230; <code>Duck</code>. Then now you&#8217;d be implementing three different interfaces, all describing the different ways your client code can see your objects.</p>
+
+<p>This grows exponentially being the number of possible interfaces <code>2^n - 1</code>, where <code>n</code> is the number of public methods. Of course your clients see them only in the subset of <code>2^n - 1</code> that is useful to them, but this will be still a big number in non trivial systems, always assuming that you really believe in object polymorphism and the <a href="http://www.objectmentor.com/resources/articles/isp.pdf">interface segregation principle</a> which encourages having small interfaces.</p>
+
+<p>It&#8217;s quite clear that such a big number of interfaces is impractical to handle in this type of strongly typed languages so we usually change the way we design to cope with this programming infrastructure problem and we start violating principles of good design. The most common solution to this is having huge interfaces with clients that, of course, just use a subset of them. This is, among other problems, a manteinance nightmare. But a smaller nightmare than the more correct alternative of having one interface for each method.</p>
+
+<h2>Ruby&#8217;s duck typing</h2>
+
+<p>Let&#8217;s see the previous code in it&#8217;s Ruby version:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ADuck</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">cuack</span>
+</span><span class='line'>    <span class="c1">#cuack the ADuck way</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">swim</span>
+</span><span class='line'>    <span class="c1">#swim the ADuck way</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">BDuck</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">cuack</span>
+</span><span class='line'>    <span class="c1">#cuack the BDuck way</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">swim</span>
+</span><span class='line'>    <span class="c1">#swim the BDuck way</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">client_method</span><span class="p">(</span><span class="n">can_cuack_and_swim</span><span class="p">)</span>
+</span><span class='line'>  <span class="c1">#code</span>
+</span><span class='line'>  <span class="n">can_cuack_and_swim</span><span class="o">.</span><span class="n">cuack</span>
+</span><span class='line'>  <span class="c1">#...</span>
+</span><span class='line'>  <span class="n">can_cuack_and_swim</span><span class="o">.</span><span class="n">swim</span>
+</span><span class='line'>  <span class="c1">#more code</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">client_method</span><span class="p">(</span><span class="no">ADuck</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#or you can split it in two like the previous C# example</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">client_method</span><span class="p">(</span><span class="n">can_cuack</span><span class="p">,</span> <span class="n">can_swim</span><span class="p">)</span>
+</span><span class='line'>  <span class="c1">#code</span>
+</span><span class='line'>  <span class="n">can_cuack</span><span class="o">.</span><span class="n">cuack</span>
+</span><span class='line'>  <span class="c1">#...</span>
+</span><span class='line'>  <span class="n">can_swim</span><span class="o">.</span><span class="n">swim</span>
+</span><span class='line'>  <span class="c1">#more code</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">client_method</span><span class="p">(</span><span class="no">ADuck</span><span class="o">.</span><span class="n">new</span><span class="p">,</span> <span class="no">BDuck</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, we don&#8217;t define interfaces, they are implicitly there because as we said earlier, interfaces are defined by the clients.</p>
+
+<p><code>client_method</code> just asks that the object that is passed as a parameter implements the required method. If you create a new class that implements those required methods, then you implement <code>client_method</code> required interface, your client sees a duck because your object behaves the way it expects, like a duck, no more extra work for creating and mantaining your classes interfaces.</p>
+
+<p>This is simplicity and programmer friendliness, from there you get easier abstraction, free low coupling and the resultant increase in quality and productivity in the right way.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/10/24/welcome/">Welcome!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-24T01:06:00-02:00" pubdate data-updated="true">Oct 24<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Welcome to my technical blog!</p>
+
+<p>Here I intend to have a place to write about all the things I find interesting in my profession. Next, I hope my posts are also interesting. My second objective is having a place to keep all those code snippets and small tips we all learn while working, which in my case are usually spread between books, computer files, notes, torn papers, and the most volatile of them all, my head. I just hope I don&#8217;t forget my <code>url</code>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/3/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/03/16/moving-to-github-pages-and-octopress/">Moved to github pages and Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/02/18/updating-go-to-edge/">Updating go to edge</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/11/cors-with-extjs/">CORS with Ext.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/09/10/download-file-from-megaupload-with-curl/">Download a file from upload or file sonic with curl</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/03/09/valgrind-on-your-ruby-extension-test/">Valgrind on your ruby extension test</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/dcadenas">@dcadenas</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'dcadenas',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dcadenas", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dcadenas" class="twitter-follow-button" data-show-count="false">Follow @dcadenas</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Daniel Cadenas -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mytechnicalblog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

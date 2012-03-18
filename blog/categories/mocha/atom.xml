@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mocha | Daniel Cadenas]]></title>
+  <link href="http://dcadenas.github.com/blog/categories/mocha/atom.xml" rel="self"/>
+  <link href="http://dcadenas.github.com/"/>
+  <updated>2012-03-18T00:25:13-03:00</updated>
+  <id>http://dcadenas.github.com/</id>
+  <author>
+    <name><![CDATA[Daniel Cadenas]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[mocha_mock_path error in your tests]]></title>
+    <link href="http://dcadenas.github.com/blog/2008/09/26/mochamockpath-error-in-your-tests/"/>
+    <updated>2008-09-26T12:29:00-03:00</updated>
+    <id>http://dcadenas.github.com/blog/2008/09/26/mochamockpath-error-in-your-tests</id>
+    <content type="html"><![CDATA[<p>If you use stubs in your Mocha tests but they break because of this error:</p>
+
+<p><code>
+ActionView::TemplateError: undefined method `mocha_mock_path'
+</code></p>
+
+<p>Check that you also stub the <code>class</code> method.</p>
+
+<p><code>ruby
+stub(:title =&gt; 'a title', :class =&gt; News)
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stubbing/Mocking constants with Mocha]]></title>
+    <link href="http://dcadenas.github.com/blog/2008/09/10/stubbingmocking-constants-with-mocha/"/>
+    <updated>2008-09-10T12:34:00-03:00</updated>
+    <id>http://dcadenas.github.com/blog/2008/09/10/stubbingmocking-constants-with-mocha</id>
+    <content type="html"><![CDATA[<p>As far as google told me, it seems you can't use Mocha against constants.</p>
+
+<p>One alternative <a href="http://rubyforge.org/pipermail/mocha-developer/2007-July/000394.html">proposed</a> is changing the constant in the test where you need it like these:</p>
+
+<p>```ruby
+class Module
+   def redefine_const(name, value)</p>
+
+<pre><code> __send__(:remove_const, name) if const_defined?(name)
+ const_set(name, value)
+</code></pre>
+
+<p>   end
+end
+```</p>
+
+<p>And inside the test case you change the constant to what you need and restore it after the test ends:</p>
+
+<p><code>ruby
+Object.redefine_const(:RAILS_ENV, 'production')
+</code></p>
+
+<p>But if you can control the code that uses the constant there's a more clean way. Just wrap it in a method and get the constant through the method. During testing you just mock the method:</p>
+
+<p>```ruby
+class A
+  def rails_env</p>
+
+<pre><code>RAILS_ENV
+</code></pre>
+
+<p>  end
+  #...some more code that gets the constant RAILS_ENV using the method rails_env...
+end
+```</p>
+
+<p>And then in your test you just do a normal expectation:</p>
+
+<p><code>ruby
+A.any_instance.expects(:rails_env).returns 'production'
+</code></p>
+
+<p>You could even have some module that wraps all useful constants in your app, so constant dependent code gets easily testable and clean.</p>
+]]></content>
+  </entry>
+  
+</feed>

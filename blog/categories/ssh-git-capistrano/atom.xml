@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ssh git capistrano | Daniel Cadenas]]></title>
+  <link href="http://dcadenas.github.com/blog/categories/ssh-git-capistrano/atom.xml" rel="self"/>
+  <link href="http://dcadenas.github.com/"/>
+  <updated>2012-03-18T00:25:13-03:00</updated>
+  <id>http://dcadenas.github.com/</id>
+  <author>
+    <name><![CDATA[Daniel Cadenas]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Capistrano and Git problems]]></title>
+    <link href="http://dcadenas.github.com/blog/2008/12/12/capistrano-and-git-problems/"/>
+    <updated>2008-12-12T15:51:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2008/12/12/capistrano-and-git-problems</id>
+    <content type="html"><![CDATA[<p>If you get this error when deploying with Capistrano:</p>
+
+<p><code>
+ERROR:gitosis.serve.main:Repository read access denied
+</code></p>
+
+<p>You may solve it with:</p>
+
+<p><code>bash
+ssh-add ~/.ssh/id_rsa
+</code></p>
+
+<p>This is needed because my ssh config is configured to forward my identity to the deployment machine (with <code>ForwardAgent yes</code>) so the ssh agent must know my private key.</p>
+]]></content>
+  </entry>
+  
+</feed>

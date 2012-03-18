@@ -9,8 +9,7 @@
   <meta name="author" content="Daniel Cadenas">
 
   
-  <meta name="description" content="This blog is now github powered!
-">
+  <meta name="description" content="I imported some articles from my previous blog using this script and ignored those I though were not too important. Soooo, welcome to my brand new &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,7 +70,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/03/16/moving-to-github-pages-and-octopress/">Moving to Github Pages and Octopress</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/03/16/moving-to-github-pages-and-octopress/">Moved to Github Pages and Octopress</a></h1>
     
     
       <p class="meta">
@@ -94,7 +93,427 @@
   </header>
 
 
-  <div class="entry-content"><p>This blog is now github powered!</p>
+  <div class="entry-content"><p>I imported some articles from my <a href="http://dcadenas.blogspot.com">previous blog</a> using this <a href="https://gist.github.com/1578928">script</a> and ignored those I though were not too important. Soooo, welcome to my brand new github powered blog!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/18/updating-go-to-edge/">Updating Go to Edge</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-18T17:56:00-02:00" pubdate data-updated="true">Feb 18<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> <span class="nv">$GOROOT</span> <span class="o">&amp;&amp;</span> hg update tip <span class="o">&amp;&amp;</span> <span class="nb">cd </span>src <span class="o">&amp;&amp;</span> ./all.bash
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/11/cors-with-extjs/">CORS With Ext.js</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-11T19:04:00-02:00" pubdate data-updated="true">Oct 11<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">useDefaultXhrHeader</span> <span class="o">=</span> <span class="kc">false</span>
+</span><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">Ajax</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span><span class="s1">&#39;http://ipv4.0-9.fi&#39;</span><span class="p">,</span> <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="nx">req</span><span class="p">){</span><span class="nx">alert</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">responseText</span><span class="p">)}})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/09/10/download-file-from-megaupload-with-curl/">Download a File From Upload or File Sonic With Curl</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-10T16:42:00-03:00" pubdate data-updated="true">Sep 10<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Wupload:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -d <span class="s2">&quot;email=your@email.com&amp;password=yourpassword&amp;redirect=/file/159344782&quot;</span> -b cookies.txt -c cookies.txt  www.wupload.com/account/login -L -o 20110910StokevsLiverpool1ertPachorriarte.mkv
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Filesonic:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -d <span class="s2">&quot;email=your@email.com&amp;password=yourpassword&amp;redirect=/file/2820172905&quot;</span> -b cookies.txt -c cookies.txt www.filesonic.com/user/login -L -o somevideo.wmv
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/09/valgrind-on-your-ruby-extension-test/">Valgrind on Your Ruby Extension Test</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-09T21:47:00-02:00" pubdate data-updated="true">Mar 9<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>valgrind --num-callers<span class="o">=</span>50 --error-limit<span class="o">=</span>no --partial-loads-ok<span class="o">=</span>yes --undef-value-errors<span class="o">=</span>no rspec spec/extension_spec.rb
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/21/ssh-tunnel-for-socks-proxy/">Ssh Tunnel for Socks Proxy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-21T13:48:00-02:00" pubdate data-updated="true">Dec 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh -fCqND 8080 linode
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/05/aprpoll-timeout-while-running-ab/">Apr_poll Timeout While Running Ab</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-05T02:40:00-03:00" pubdate data-updated="true">Apr 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you get this error while running <code>ab</code> (ApacheBench) on your mac:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apr_poll: The timeout specified has expired (70007)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It may get fixed with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo sysctl -w net.inet.ip.portrange.first<span class="o">=</span>32768
+</span><span class='line'>sudo sysctl -w net.inet.tcp.msl<span class="o">=</span>100
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/02/new-ruby-gems/">New Ruby Gems</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-02T16:45:00-03:00" pubdate data-updated="true">Apr 2<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Oops! It&#8217;s been a while since the last time I updated my blog.
+I promise I&#8217;ll try to get back to business and write more often whenever I find some time.</p>
+
+<p>First of all, many months ago I joined <a href="http://cuboxlabs.com">Cubox</a>, a new uruguayan startup that works for many US clients including partnership and offshore work with renowned Rails shops. We are continuously growing and we are always happy to add talented developers to our team so if you are interested and are passionate about Ruby, Rails and agile development just email us.</p>
+
+<p>We believe in open source, we use it in all our projects and we also contribute to the community. Here is an update of my latest new gems which were not covered in this blog. I hope you find them useful, click on the links for more info:</p>
+
+<ul>
+<li><a href="http://github.com/dcadenas/preforker">Preforker</a>: Easily create preforking servers (like Unicorn architecture)</li>
+<li><a href="http://github.com/cubox/rankable_graph">Rankable Graph</a>: Calculates the pagerank of medium sized graphs (some millions of nodes).</li>
+<li><a href="http://github.com/dcadenas/state_pattern">State Pattern</a>: A classical implementation of the state pattern.</li>
+<li><a href="http://github.com/dcadenas/stubborn">Stubborn</a>: Helps finding missing external API stubs in your tests.</li>
+<li><a href="http://github.com/dcadenas/google_set">Google Set</a>: API for Google Sets.</li>
+<li><a href="http://github.com/dcadenas/change_watcher">Change Watcher</a>: Helps keeping a log of changes. Useful to store scraped info from cron scripts.</li>
+</ul>
+
+
+<p>So check them out and contribute!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/22/gem-to-send-mails-through-gmail/">Gem to Send Mails Through Gmail</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-22T19:23:00-03:00" pubdate data-updated="true">May 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I made this little gem, <code>gmail_sender</code> that I find useful to log things when I&#8217;m running some script in my VPS, I use it for things like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">g</span> <span class="o">=</span> <span class="no">GmailSender</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;gmail_account&quot;</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">begin</span>
+</span><span class='line'>  <span class="c1">#Some interesting script that returns some interesting results in script_results</span>
+</span><span class='line'>  <span class="n">g</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;dcadenas@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;It worked!&quot;</span><span class="p">,</span> <span class="n">script_results</span><span class="o">.</span><span class="n">to_yaml</span><span class="p">)</span>
+</span><span class='line'><span class="k">rescue</span> <span class="o">=&gt;</span> <span class="n">e</span>
+</span><span class='line'>  <span class="n">g</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;dcadenas@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;It didn&#39;t work :(&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="si">#{</span><span class="n">e</span><span class="o">.</span><span class="n">backtrace</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">raise</span> <span class="n">e</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So all you need to pass to the <code>send</code> method is an email address, the subject and the email content.</p>
+
+<p>The source code is <a href="http://github.com/dcadenas/gmail_sender/tree/master">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/22/some-useful-bash-functions/">Some Useful Bash Functions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-22T19:12:00-03:00" pubdate data-updated="true">May 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use this bash functions to open vim with splits for each file in which grep or rak find the pattern I&#8217;m searching for:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>grepvim<span class="o">(){</span>
+</span><span class='line'>  grep -rl <span class="s2">&quot;$1&quot;</span> <span class="nv">$2</span>| xargs mvim -o +/<span class="s2">&quot;$1&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>rakvim<span class="o">(){</span>
+</span><span class='line'>  rak -l <span class="s2">&quot;$1&quot;</span> <span class="nv">$2</span>| xargs mvim -o +/<span class="s2">&quot;$1&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
   
   
@@ -103,6 +522,8 @@
     </article>
   
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -115,7 +536,23 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/03/16/moving-to-github-pages-and-octopress/">Moving to github pages and Octopress</a>
+        <a href="/blog/2012/03/16/moving-to-github-pages-and-octopress/">Moved to github pages and Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/02/18/updating-go-to-edge/">Updating go to edge</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/11/cors-with-extjs/">CORS with Ext.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/09/10/download-file-from-megaupload-with-curl/">Download a file from upload or file sonic with curl</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/03/09/valgrind-on-your-ruby-extension-test/">Valgrind on your ruby extension test</a>
       </li>
     
   </ul>

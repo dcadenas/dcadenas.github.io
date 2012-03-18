@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | Daniel Cadenas]]></title>
+  <link href="http://dcadenas.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://dcadenas.github.com/"/>
+  <updated>2012-03-18T00:25:13-03:00</updated>
+  <id>http://dcadenas.github.com/</id>
+  <author>
+    <name><![CDATA[Daniel Cadenas]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Auto Focusable Forms]]></title>
+    <link href="http://dcadenas.github.com/blog/2008/10/10/auto-focusable-forms/"/>
+    <updated>2008-10-10T23:13:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2008/10/10/auto-focusable-forms</id>
+    <content type="html"><![CDATA[<p>Just commited a Rails plugin (my first one, yay!!) to give automatic focus to the first input of the first form in each of your views.</p>
+
+<p>Of course you can disable this behaviour but I think that having focus in the first input by default can be very useful.</p>
+
+<p>You can read more in the project page <a href="http://github.com/dcadenas/auto_focusable_forms/tree">here</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
