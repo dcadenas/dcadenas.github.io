@@ -10,7 +10,7 @@ comments: true
 ---
 My new toy is the Ruby language (I know, toys are a serious thing). I'm experimenting a bit, trying to see why all the fuss. Until now I like what I see. It's my first experience with a dynamic language and I feel quite comfortable with it. What I like most until now is duck typing, and no, it's not a typo, I really mean duck, the animal.
 
-<img style="float:left; margin-right: 15px" src="http://2.bp.blogspot.com/_Jy_WaM9LS-I/RyVUf3hHWEI/AAAAAAAAAU8/GMqjCQbJgBs/s200/duck.gif" />
+{% img left http://2.bp.blogspot.com/_Jy_WaM9LS-I/RyVUf3hHWEI/AAAAAAAAAU8/GMqjCQbJgBs/s200/duck.gif %}
 
 This comes from the more pure concept of interface in which you consider that two different objects have the same interface if they respond to the same messages, to the same way of interacting, of talking to them.
 
