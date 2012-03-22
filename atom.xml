@@ -4,7 +4,7 @@
   <title><![CDATA[Daniel Cadenas]]></title>
   <link href="http://dcadenas.github.com/atom.xml" rel="self"/>
   <link href="http://dcadenas.github.com/"/>
-  <updated>2012-03-18T03:57:59-03:00</updated>
+  <updated>2012-03-22T02:38:04-03:00</updated>
   <id>http://dcadenas.github.com/</id>
   <author>
     <name><![CDATA[Daniel Cadenas]]></name>
@@ -18,7 +18,7 @@
     <link href="http://dcadenas.github.com/blog/2012/03/16/moving-to-github-pages-and-octopress/"/>
     <updated>2012-03-16T22:25:00-03:00</updated>
     <id>http://dcadenas.github.com/blog/2012/03/16/moving-to-github-pages-and-octopress</id>
-    <content type="html"><![CDATA[<p>I imported some articles from my <a href="http://dcadenas.blogspot.com">previous blog</a> using this <a href="https://gist.github.com/1578928">script</a> and ignored those I though were not too important. Soooo, welcome to my brand new github powered blog!</p>
+    <content type="html"><![CDATA[<p>I imported some articles from my previous blog using this <a href="https://gist.github.com/1578928">script</a> and ignored those I though were not too important. Soooo, welcome to my brand new github powered blog!</p>
 ]]></content>
   </entry>
   
