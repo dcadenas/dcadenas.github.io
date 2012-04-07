@@ -19,3 +19,5 @@ Para instalarlo simplemente hay que arrastrar este link [[[<a href="javascript:(
 Y listo! Ahora cada vez que vayan al listado por películas o por salas de [cartelera.com.uy](http://www2.cartelera.com.uy/apeliculafunciones.aspx?,,PELICULAS,FILM,0,3) hagan click en el link que arrastraron y de a poco van a ir apareciendo los ratings de [IMDB](http://www.imdb.com/) y de [Rotten Tomatoes](http://www.rottentomatoes.com/) en un cuadro amarillo bien feo que van a notar enseguida.
 
 Que les sea útil!
+
+NOTA TÉCNICA: El bookmarklet levanta este [gist](https://gist.github.com/2325686). Aportes bienvenidos.
