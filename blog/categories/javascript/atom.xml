@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | Daniel Cadenas]]></title>
   <link href="http://dcadenas.github.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://dcadenas.github.com/"/>
-  <updated>2012-03-22T02:38:04-03:00</updated>
+  <updated>2012-04-07T04:06:16-03:00</updated>
   <id>http://dcadenas.github.com/</id>
   <author>
     <name><![CDATA[Daniel Cadenas]]></name>
@@ -14,127 +14,23 @@
 
   
   <entry>
-    <title type="html"><![CDATA[CORS with Ext.js]]></title>
-    <link href="http://dcadenas.github.com/blog/2011/10/11/cors-with-extjs/"/>
-    <updated>2011-10-11T19:04:00-02:00</updated>
-    <id>http://dcadenas.github.com/blog/2011/10/11/cors-with-extjs</id>
-    <content type="html"><![CDATA[<p><code>javascript
-Ext.Ajax.useDefaultXhrHeader = false
-Ext.Ajax.request({url:'http://ipv4.0-9.fi', success: function(res,req){alert(res.responseText)}})
-</code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reverse Ajax and Prototype with Mongrel handlers]]></title>
-    <link href="http://dcadenas.github.com/blog/2008/08/25/reverse-ajax-and-prototype/"/>
-    <updated>2008-08-25T23:38:00-03:00</updated>
-    <id>http://dcadenas.github.com/blog/2008/08/25/reverse-ajax-and-prototype</id>
-    <content type="html"><![CDATA[<p>A common use of <a href="http://en.wikipedia.org/wiki/Reverse_Ajax">reverse Ajax or Comet</a> calls is having some piece of information in your webpage that you want to update as soon as some remote event triggers, always without polling. Let's make a little experiment to see how this works:</p>
+    <title type="html"><![CDATA[IMDB para cartelera.com.uy]]></title>
+    <link href="http://dcadenas.github.com/blog/2012/04/07/imdb-para-cartelera-dot-com-dot-uy/"/>
+    <updated>2012-04-07T03:21:00-03:00</updated>
+    <id>http://dcadenas.github.com/blog/2012/04/07/imdb-para-cartelera-dot-com-dot-uy</id>
+    <content type="html"><![CDATA[<p>A ver si me sale bien mi primer post en español sin detalles técnicos, para el bien de la comunidad cinéfila uruguaya.</p>
 
-<h2>Client side</h2>
+<p>Uso bastante <a href="http://www2.cartelera.com.uy/apeliculafunciones.aspx?,,PELICULAS,FILM,0,3">cartelera.com.uy</a> cada vez que quiero ir al cine, tienen un buen resumen de lo que hay en todos los cines y se puede ver un listado rápido en una sola página sin dar muchas vueltas.</p>
 
-<p>So you start a request, the web server waits for the event to happen, and finally, a while later, the response is sent back to the client. When this process ends, it's very common that you want to start it again. You want to have a continuous ajax call when the event is also continuous, when it can happen many times.
-To deal with this, as I'm using <a href="http://www.prototypejs.org/">prototype</a>, I made this javascript routine to start listening for the event:</p>
+<p>Lo que nunca me gustó del sitio es que nunca estoy de acuerdo con los ratings de los usuarios y en general me siento más identificado con las evaluaciones que da <a href="http://www.imdb.com/">IMDB</a> y <a href="http://www.rottentomatoes.com/">Rotten Tomatoes</a>. Lo que hacía siempre era ver que película me parecía buena y luego me metía en <a href="http://www.imdb.com/">IMDB</a> para verificar que no fuera un desastre y le hubiera errado como a las peras (o tomates mejor dicho). La verdad que no poder hacerlo de una sola mirada en el listado de películas era bastante engorroso.</p>
 
-<p>```javascript
-function continuousAjaxCall(url, method, params, successCallback){
-  waitingForResponse = false;
-  function iteration(){</p>
+<p>Así que me cansé de tanto trabajo y me hice un <a href="http://es.wikipedia.org/wiki/Bookmarklet">bookmarklet</a> que permite agregar un cuadrito al lado de cada película con esos dos ratings que me interesan. Ojo, no siempre funciona bien, en <a href="http://www2.cartelera.com.uy/apeliculafunciones.aspx?,,PELICULAS,FILM,0,3">cartelera.com.uy</a> ponen los nombres de las películas en español y eso hace que la búsqueda en <a href="http://www.imdb.com/">IMDB</a> a veces le erre feo. Igual me parece que en general los resultados son útiles.</p>
 
-<pre><code>if(!waitingForResponse){
-  waitingForResponse = true;
-  new Ajax.Request(url, 
-   {
-     method: method,
-     parameters: params,
-     onSuccess: theSuccessCallback
-   });
-}
-</code></pre>
+<p>Para instalarlo simplemente hay que arrastrar este link [[[<a href="javascript:(function(){var s = document.createElement('script');s.src = 'https://raw.github.com/gist/2325686/gistfile1.js';document.body.appendChild(s);})();">Poner ratings IMDB</a>]]] a la barra de favoritos (bookmarks si está en inglés).</p>
 
-<p>  };</p>
+<p>Y listo! Ahora cada vez que vayan al listado por películas o por salas de <a href="http://www2.cartelera.com.uy/apeliculafunciones.aspx?,,PELICULAS,FILM,0,3">cartelera.com.uy</a> hagan click en el link que arrastraron y de a poco van a ir apareciendo los ratings de <a href="http://www.imdb.com/">IMDB</a> y de <a href="http://www.rottentomatoes.com/">Rotten Tomatoes</a> en un cuadro amarillo bien feo que van a notar enseguida.</p>
 
-<p>  function theSuccessCallback(transport){
-   successCallback(transport.responseText);
-   waitingForResponse = false;
-  };</p>
-
-<p>  return new PeriodicalExecuter(iteration, 1);
-}
-```</p>
-
-<p>So now if you do:</p>
-
-<p><code>javascript
-continuousAjaxCall("/WebFacade/SomeWebService", "post", "taskid=" + taskNumber, callback);
-</code></p>
-
-<p>you will start listening to the web service in <code>/WebFacade/SomeWebService</code> using method post and with <code>taskid=taskNumber</code> as the http body parameter.
-The callback is a routine that will be executed each time the event is triggered. For example we could do this to show the result from the web service:</p>
-
-<p><code>javascript
-function callback(responseText)
-{
-  alert(responseText);
-}
-</code></p>
-
-<p>The routine returns a prototype <a href="http://www.prototypejs.org/api/periodicalExecuter"><code>PeriodicalExecuter</code></a> that you can use to stop listening:</p>
-
-<p><code>javascript
-pe = continuousAjaxCall(...
-pe.stop()
-</code></p>
-
-<h2>Server side</h2>
-
-<p>In the server side I have some <a href="/blog/2008/08/24/standalone-mongrel-handler-hello-world">Mongrel handlers</a> serving the client pages. The key here is the line sleep 1 until <code>@@submitted_value</code> that waits until some new value is submitted and <strong>only</strong> then responds to the ajax request:</p>
-
-<p>```ruby
-require 'rubygems'
-require 'mongrel'
-include Mongrel</p>
-
-<p>@@submitted_value = nil</p>
-
-<p>class ReverseAjaxHandler &lt; HttpHandler
-  def process(request, response)</p>
-
-<pre><code>response.start(200) do |head,out|
-  head['content-type'] = 'text/html'
-  sleep 1 until @@submitted_value
-  out &lt;&lt; @@submitted_value
-  @@submitted_value = nil
-end
-</code></pre>
-
-<p>  end
-end</p>
-
-<p>class SendHandler &lt; HttpHandler
-  def process(request, response)</p>
-
-<pre><code>response.start(200) do |head,out|
-  #Code that renders the "/send" page and sets the @@submitted_value
-  #...  
-  #...  
-end
-</code></pre>
-
-<p>  end
-end</p>
-
-<p>h = HttpServer.new("0.0.0.0", "5000")
-h.register("/wait", ReverseAjaxHandler.new)
-h.register("/send", SendHandler.new)
-h.register("/files", DirHandler.new('.'))
-h.run.join
-```</p>
-
-<p>It's nice to have this as a Mongrel handler because it's simple, but keep in mind that this implementation was made just for the purpose of this example and it is not thread safe. I don't control the access to the global variable <code>@@submitted_value</code>.</p>
-
-<p>The code for this article can be found <a href="http://dcadenas.googlepages.com/ReverseAjaxExperiment.zip">here</a>.</p>
+<p>Que les sea útil!</p>
 ]]></content>
   </entry>
   
