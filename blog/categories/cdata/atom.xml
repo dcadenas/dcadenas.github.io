@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: CDATA | Daniel Cadenas]]></title>
+  <link href="http://dcadenas.github.com/blog/categories/cdata/atom.xml" rel="self"/>
+  <link href="http://dcadenas.github.com/"/>
+  <updated>2012-04-07T04:13:45-03:00</updated>
+  <id>http://dcadenas.github.com/</id>
+  <author>
+    <name><![CDATA[Daniel Cadenas]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Escaping CDATA]]></title>
+    <link href="http://dcadenas.github.com/blog/2007/11/13/escaping/"/>
+    <updated>2007-11-13T23:13:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2007/11/13/escaping</id>
+    <content type="html"><![CDATA[<p>This is a handy code that wraps a string with CDATA escaping any CDATA inside it:</p>
+
+<p>```c#
+public static string CData(string data)
+{</p>
+
+<pre><code>if (string.IsNullOrEmpty(data))
+{
+    return string.Empty;
+}
+
+string result = Regex.Replace(data, "]]&gt;", "]]]]&gt;&lt;![CDATA[&gt;");
+return "&lt;![CDATA[" + result + "]]&gt;";
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

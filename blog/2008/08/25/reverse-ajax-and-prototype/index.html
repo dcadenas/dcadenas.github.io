@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Reverse Ajax and Prototype with Mongrel handlers - Daniel Cadenas</title>
+  <meta name="author" content="Daniel Cadenas">
+
+  
+  <meta name="description" content="A common use of reverse Ajax or Comet calls is having some piece of information in your webpage that you want to update as soon as some remote event &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dcadenas.github.com/blog/2008/08/25/reverse-ajax-and-prototype">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Daniel Cadenas" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1886130-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Daniel Cadenas</a></h1>
+  
+    <h2>My technical blog</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dcadenas.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Reverse Ajax and Prototype With Mongrel Handlers</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-25T23:38:00-03:00" pubdate data-updated="true">Aug 25<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A common use of <a href="http://en.wikipedia.org/wiki/Reverse_Ajax">reverse Ajax or Comet</a> calls is having some piece of information in your webpage that you want to update as soon as some remote event triggers, always without polling. Let&#8217;s make a little experiment to see how this works:</p>
+
+<h2>Client side</h2>
+
+<p>So you start a request, the web server waits for the event to happen, and finally, a while later, the response is sent back to the client. When this process ends, it&#8217;s very common that you want to start it again. You want to have a continuous ajax call when the event is also continuous, when it can happen many times.
+To deal with this, as I&#8217;m using <a href="http://www.prototypejs.org/">prototype</a>, I made this javascript routine to start listening for the event:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">continuousAjaxCall</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="nx">successCallback</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">waitingForResponse</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">function</span> <span class="nx">iteration</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">waitingForResponse</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">waitingForResponse</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">new</span> <span class="nx">Ajax</span><span class="p">.</span><span class="nx">Request</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span>
+</span><span class='line'>       <span class="p">{</span>
+</span><span class='line'>         <span class="nx">method</span><span class="o">:</span> <span class="nx">method</span><span class="p">,</span>
+</span><span class='line'>         <span class="nx">parameters</span><span class="o">:</span> <span class="nx">params</span><span class="p">,</span>
+</span><span class='line'>         <span class="nx">onSuccess</span><span class="o">:</span> <span class="nx">theSuccessCallback</span>
+</span><span class='line'>       <span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">function</span> <span class="nx">theSuccessCallback</span><span class="p">(</span><span class="nx">transport</span><span class="p">){</span>
+</span><span class='line'>   <span class="nx">successCallback</span><span class="p">(</span><span class="nx">transport</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+</span><span class='line'>   <span class="nx">waitingForResponse</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="k">new</span> <span class="nx">PeriodicalExecuter</span><span class="p">(</span><span class="nx">iteration</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So now if you do:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">continuousAjaxCall</span><span class="p">(</span><span class="s2">&quot;/WebFacade/SomeWebService&quot;</span><span class="p">,</span> <span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="s2">&quot;taskid=&quot;</span> <span class="o">+</span> <span class="nx">taskNumber</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>you will start listening to the web service in <code>/WebFacade/SomeWebService</code> using method post and with <code>taskid=taskNumber</code> as the http body parameter.
+The callback is a routine that will be executed each time the event is triggered. For example we could do this to show the result from the web service:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">responseText</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nx">alert</span><span class="p">(</span><span class="nx">responseText</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The routine returns a prototype <a href="http://www.prototypejs.org/api/periodicalExecuter"><code>PeriodicalExecuter</code></a> that you can use to stop listening:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">pe</span> <span class="o">=</span> <span class="nx">continuousAjaxCall</span><span class="p">(...</span>
+</span><span class='line'><span class="nx">pe</span><span class="p">.</span><span class="nx">stop</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Server side</h2>
+
+<p>In the server side I have some <a href="/blog/2008/08/24/standalone-mongrel-handler-hello-world">Mongrel handlers</a> serving the client pages. The key here is the line sleep 1 until <code>@@submitted_value</code> that waits until some new value is submitted and <strong>only</strong> then responds to the ajax request:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;mongrel&#39;</span>
+</span><span class='line'><span class="kp">include</span> <span class="no">Mongrel</span>
+</span><span class='line'>
+</span><span class='line'><span class="vc">@@submitted_value</span> <span class="o">=</span> <span class="kp">nil</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ReverseAjaxHandler</span> <span class="o">&lt;</span> <span class="no">HttpHandler</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">response</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">head</span><span class="p">,</span><span class="n">out</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">head</span><span class="o">[</span><span class="s1">&#39;content-type&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;text/html&#39;</span>
+</span><span class='line'>      <span class="nb">sleep</span> <span class="mi">1</span> <span class="k">until</span> <span class="vc">@@submitted_value</span>
+</span><span class='line'>      <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="vc">@@submitted_value</span>
+</span><span class='line'>      <span class="vc">@@submitted_value</span> <span class="o">=</span> <span class="kp">nil</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">SendHandler</span> <span class="o">&lt;</span> <span class="no">HttpHandler</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">response</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">head</span><span class="p">,</span><span class="n">out</span><span class="o">|</span>
+</span><span class='line'>      <span class="c1">#Code that renders the &quot;/send&quot; page and sets the @@submitted_value</span>
+</span><span class='line'>      <span class="c1">#...  </span>
+</span><span class='line'>      <span class="c1">#...  </span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">h</span> <span class="o">=</span> <span class="no">HttpServer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="s2">&quot;5000&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">h</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;/wait&quot;</span><span class="p">,</span> <span class="no">ReverseAjaxHandler</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+</span><span class='line'><span class="n">h</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;/send&quot;</span><span class="p">,</span> <span class="no">SendHandler</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+</span><span class='line'><span class="n">h</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;/files&quot;</span><span class="p">,</span> <span class="no">DirHandler</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span>
+</span><span class='line'><span class="n">h</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">join</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It&#8217;s nice to have this as a Mongrel handler because it&#8217;s simple, but keep in mind that this implementation was made just for the purpose of this example and it is not thread safe. I don&#8217;t control the access to the global variable <code>@@submitted_value</code>.</p>
+
+<p>The code for this article can be found <a href="http://dcadenas.googlepages.com/ReverseAjaxExperiment.zip">here</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Daniel Cadenas</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-08-25T23:38:00-03:00" pubdate data-updated="true">Aug 25<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/ajax/'>ajax</a>, <a class='category' href='/blog/categories/comet/'>comet</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/mongrel/'>mongrel</a>, <a class='category' href='/blog/categories/prototype/'>prototype</a>, <a class='category' href='/blog/categories/reverse-ajax/'>reverse ajax</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dcadenas.github.com/blog/2008/08/25/reverse-ajax-and-prototype/" data-via="dcadenas" data-counturl="http://dcadenas.github.com/blog/2008/08/25/reverse-ajax-and-prototype/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/08/24/standalone-mongrel-handler-hello-world/" title="Previous Post: Standalone Mongrel handler Hello World">&laquo; Standalone Mongrel handler Hello World</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/09/03/singleton-class-magic-without-using/" title="Next Post: Singleton class magic without using singleton classes">Singleton class magic without using singleton classes &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>I'm an uruguayan software engineer interested in agile methodologies and software design best practices.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/04/07/imdb-para-cartelera-dot-com-dot-uy/">IMDB para cartelera.com.uy</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/16/moving-to-github-pages-and-octopress/">Moved to github pages and Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/02/18/updating-go-to-edge/">Updating go to edge</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/10/11/cors-with-extjs/">CORS with Ext.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/09/10/download-file-from-megaupload-with-curl/">Download a file from Wupload or Filesonic with curl</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/dcadenas">@dcadenas</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'dcadenas',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("dcadenas", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/dcadenas" class="twitter-follow-button" data-show-count="false">Follow @dcadenas</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Daniel Cadenas -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mytechnicalblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dcadenas.github.com/blog/2008/08/25/reverse-ajax-and-prototype/';
+        var disqus_url = 'http://dcadenas.github.com/blog/2008/08/25/reverse-ajax-and-prototype/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

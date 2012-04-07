@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Design | Daniel Cadenas]]></title>
+  <link href="http://dcadenas.github.com/blog/categories/design/atom.xml" rel="self"/>
+  <link href="http://dcadenas.github.com/"/>
+  <updated>2012-04-07T04:13:45-03:00</updated>
+  <id>http://dcadenas.github.com/</id>
+  <author>
+    <name><![CDATA[Daniel Cadenas]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Tip about encapsulation]]></title>
+    <link href="http://dcadenas.github.com/blog/2008/09/19/good-tip-about-encapsulation/"/>
+    <updated>2008-09-19T18:46:00-03:00</updated>
+    <id>http://dcadenas.github.com/blog/2008/09/19/good-tip-about-encapsulation</id>
+    <content type="html"><![CDATA[<p>I was reading and <a href="http://www.martinfowler.com/bliki/GetterEradicator.html">article</a> about encapsulation on Martin Fowler's blog when I found this simple and practical tip:</p>
+
+<p><blockquote><p>Always beware of cases where some code invokes more than one method on the same object</p><footer><strong>Kent Beck</strong> <cite><a href='http://www.martinfowler.com/bliki/GetterEradicator.html'>www.martinfowler.com/bliki/&hellip;</a></cite></footer></blockquote></p>
+
+<p>It's not a rule but I think it can be considered one more code smell to keep in mind.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[More about refactoring]]></title>
+    <link href="http://dcadenas.github.com/blog/2007/12/08/more-about-refactoring/"/>
+    <updated>2007-12-08T19:09:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2007/12/08/more-about-refactoring</id>
+    <content type="html"><![CDATA[<p>Some points of disagreement with the critique against the <a href="http://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Technology/dp/0201485672">refactoring book</a> found in <a href="http://www.codinghorror.com/blog/archives/000589.html">this article about smells</a>.</p>
+
+<ul>
+<li><p>Assuming that he is right in that most of us know how to refactor, I think that's because experience gave us the needed knowledge. Time and pain was needed. This time and pain, as in any knowledge area, can be reduced by reading books, like Fowler's.</p></li>
+<li><p>Apart from this, I think even a developer with experience and knowledge of most refactorings could miss some smells. We are humans and we acquire bad habits.</p></li>
+<li><p>A big part of the knowledge gained with experience is too intuitive and that brings some problems. When things are intuitive and you suddenly find someone that doesn't share your intuition you have to discuss with solid explicit arguments. Fowler's book helps you ease the work needed to find those arguments letting you show clearly why your intuition is the way it is. You can do it yourself of course, but it's easier to reuse the effort someone else did, if you share it of course.</p></li>
+<li><p>The book defines a vocabulary to deal with our intuition or implicit concepts, that is very very important. Now we can share it and we can communicate more efficiently. The same advantage we discovered after design patterns appeared.</p></li>
+<li><p>He agrees with Fowler that smells are important. The book is a reference to smells. IMO refactoring is more about identifying design problems (smells) than about the relatively simple things needed to make them disappear, but it's both.</p></li>
+<li><p>Things that are important, like smells, must be made explicit so the problem can be easily studied and possibly build some more knowledge on higher level concepts. One of those higher level concepts that could be further developed was the development philosophy of <a href="http://martinfowler.com/ieeeSoftware/continuousDesign.pdf">Continuous Design</a> in which a core concept is refactoring.</p></li>
+<li><p>I think there's a confusion between simplicity and importance. Not only complicated books are important.</p></li>
+</ul>
+
+
+<p>Seems that a big reason for this disagreement comes from not seeing a tight relationship between code smells and refactoring as explained in <a href="/blog/2007/12/03/meaning-of-refactoring">this previous post</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[More about architects]]></title>
+    <link href="http://dcadenas.github.com/blog/2007/12/04/more-about-architects/"/>
+    <updated>2007-12-04T23:31:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2007/12/04/more-about-architects</id>
+    <content type="html"><![CDATA[<p>I found <a href="http://martinfowler.com/ieeeSoftware/whoNeedsArchitect.pdf">this</a> great Fowler's article which I think compliments well with my <a href="/blog/2007/11/09/architects-and-programmers">previous post</a> saying that architects are programmers.</p>
+
+<p>Then I found <a href="http://martinfowler.com/articles/designDead.html">this</a> other great webpage he wrote about software design.</p>
+
+<p>In the paragraph <em>Do you wanna be an Architect when you grow up?</em> he talks about this issue. I think that the <em>I'm not just a mere programmer - I'm an architect</em> feeling he points out is one of the reasons people feel so much against this natural unification of responsibilities.</p>
+
+<p>Just imagine a football team in which only forwards are supposed to score goals and discouraged to assist and midfielders can only assist but are discouraged to score goals, it would be just stupid the way resources would be wasted with this separation.</p>
+
+<p>Now imagine a software system in which only the architect takes architecture decisions and doesn't touch code, and programmers only code and don't take architecture decisions. It is unnatural.</p>
+
+<p>Wouldn't be better if all players, err, programmers could make that decision as a team? You would just listen more carefully to the experienced programmer that is the architect and you'd have to be more trained on design. But that has always been your responsibility, you develop software! A programmer without design knowledge (or will to improve it) is like a football player that can't make a decent pass.</p>
+
+<p>Finally it seems Jeremy D. Miller also agrees on this as he shows in another <a href="http://codebetter.com/blogs/jeremy.miller/archive/2007/10/03/strength-at-the-point-of-attack.aspx">post</a>.</p>
+
+<p>So I got quite happy to discover so many people think the same way. I guess this <em>architects are developers</em> belief is more popular than I thought and that can only be good!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The meaning of refactoring]]></title>
+    <link href="http://dcadenas.github.com/blog/2007/12/03/meaning-of-refactoring/"/>
+    <updated>2007-12-03T02:21:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2007/12/03/meaning-of-refactoring</id>
+    <content type="html"><![CDATA[<p>For a lot of people refactoring is not important. For some people this is because they don't know the correct meaning. They think it's just the name someone made up to describe any code change.</p>
+
+<p>That's not refactoring.</p>
+
+<p>You refactor when the changes you make <strong>improve</strong> the design while keeping its behaviour unchanged. Knowing <a href="http://martinfowler.com/bliki/CodeSmell.html">when</a> and <a href="http://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Technology/dp/0201485672">how</a> this improvement should be systematically made is what is taught in the literature.</p>
+
+<p>But there's another group of people that know the correct definition but still don't believe in it. This is because they measure their design quality just by its behaviour, so if the code already does what it's intended to do, they think it's good code. They believe in the <em>Don't touch the design if it's not broken</em> mantra (a slightly more valid reason to believe in this comes from lacking a good set of tests that act as a safety net for your design improvements).</p>
+
+<p>For this reason they slowly start accumulating <a href="http://c2.com/cgi/wiki?DesignDebt">design debt</a>. At some point, not too far in time, this unattended design improvement brings the impossibility to change code as it can't be controlled. This is because it's too difficult to understand and see all consequences of any change they may do, so either they don't change code anymore, or if they do, they start seeing bugs appear everywhere because they broke something they couldn't see it could get broken. So they say <em>You see? I was right, code shouldn't be changed if it's not broken</em>, a self-fulfilling prophecy.</p>
+
+<p>So in summary, refactoring requires the ability to systematically <a href="http://martinfowler.com/bliki/CodeSmell.html">identify</a> and improve problematic designs and it's important because it pays your design debt. This is necessary to understand and change your code easily.</p>
+
+<p>This are great books you can read to improve refactoring skills:</p>
+
+<ul>
+<li><a href="http://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Technology/dp/0201485672">Refactoring: Improving the Design of Existing Code</a></li>
+<li><a href="http://www.amazon.com/Refactoring-Patterns-Addison-Wesley-Signature-Kerievsky/dp/0321213351">Refactoring to Patterns</a></li>
+<li><a href="http://www.amazon.com/xUnit-Test-Patterns-Refactoring-Addison-Wesley/dp/0131495054">xUnit Test Patterns: Refactoring Test Code</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Architects and programmers]]></title>
+    <link href="http://dcadenas.github.com/blog/2007/11/09/architects-and-programmers/"/>
+    <updated>2007-11-09T19:48:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2007/11/09/architects-and-programmers</id>
+    <content type="html"><![CDATA[<p>I'm currently working in a project for a client bank. Some days ago we had a meeting where they showed us their IT's organizational chart which had been recently updated. They had two departments, one of them was made by business analysts and software architects, and the other department is the software factory where programmers are supposed to be. I interpreted that they were even physically two different sections. I'm not sure if I'm alone in this but I think this separation is wrong. I think that architects belong to the same space as developers because they are essentially the same thing.</p>
+
+<h2>Architects are programmers</h2>
+
+<p>We should notice that architecture is a subset of design which implies that an architect is a designer. Now, if we agree that <a href="http://www.developerdotstar.com/mag/articles/reeves_design_main.html">programmers are the designers of software</a> then a good programmer that is capable of designing this subset, is an architect. Also notice that there are no good architects that are bad programmers. Being a good programmer is a prerequisite for being an architect.</p>
+
+<p><img class="center" src="/images/arch.gif"></p>
+
+<p>So a programming language is not more nor less than a software design language.
+Of course there are other tools to design software (diagrams, etc), but a programming language is better as its product is the only design representation that is directly interpreted by the computer and the only one that has a 1 on 1 relation between what you expect and what you get.
+Used correctly, they are better at communicating a design than the alternatives.</p>
+
+<p>So architects should program but they also should do it in the same physical space as the rest of programmers. Not only because they have to communicate their ideas but also for two extra benefits:</p>
+
+<ul>
+<li><p>Feedback.
+Probably the most essential characteristic of software design is that it evolves by iterating. Even when doing waterfall, you evolve and iterate (the problem is that you stop too early doing so and you do it on paper). This evolution can only be done with realtime feedback and you won't get feedback if you are not inspecting and touching the guts of your child.
+You can only assess the correctness of your initial "paper level architecture" with the detailed "code level architecture", you should have a deep understanding of the most real representation of your architecture so you can be able to gather immediate feedback both against interpretation errors when some developer didn't understand you and against your own errors. Even if you are errorless (I don't believe that), feedback lets you learn about the domain and improve continuously your design.</p></li>
+<li><p>Maximizing transfer of expertise and knowledge.
+If an architect is just a good and respected developer, then why not transfer its merits to the teammates. This would end up being a win-win situation because they'll keep improving and they know they will be responsible for the general improvement. The waste and problems that represent using programmers as if they were code generation tools is as silly as having not programming architects. Their design abilities must be improved. If they can't improve, well, then they are too stupid and risky even as a code generation tool, so don't hire them if you don't intend to use them as architects.</p></li>
+</ul>
+
+
+<h2>The separation problem</h2>
+
+<p>Divide and conquer it's a great heuristic. But if you fail to spot the point in which you should stop dividing, then it's counterproductive. Some things belong together. And when those things are split you'll find problems.
+So if we have an architect that is not involved in programming we'll get two situations:</p>
+
+<ul>
+<li><p>We have an good programmer, maybe the best in our company, that is being used only for writing word documents and making presentations and diagrams. This is any design representation you imagine except the one in which he is good at and at the same time the one that is the more important and cannot be skipped. Yes, this is the one that is least understood by other departments of the company, but the architect role should be constructing software, his main target of communication are the programmers from the trenches. Communication with the rest is secondary.</p></li>
+<li><p>We have a bad programmer that was choosen for some reason to make the architecture of the system. Let's not extend on this for obvious reasons.</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

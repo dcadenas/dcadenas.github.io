@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby | Daniel Cadenas]]></title>
+  <link href="http://dcadenas.github.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://dcadenas.github.com/"/>
+  <updated>2012-04-07T04:13:45-03:00</updated>
+  <id>http://dcadenas.github.com/</id>
+  <author>
+    <name><![CDATA[Daniel Cadenas]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Valgrind on your ruby extension test]]></title>
+    <link href="http://dcadenas.github.com/blog/2011/03/09/valgrind-on-your-ruby-extension-test/"/>
+    <updated>2011-03-09T21:47:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2011/03/09/valgrind-on-your-ruby-extension-test</id>
+    <content type="html"><![CDATA[<p><code>bash
+valgrind --num-callers=50 --error-limit=no --partial-loads-ok=yes --undef-value-errors=no rspec spec/extension_spec.rb
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New Ruby gems]]></title>
+    <link href="http://dcadenas.github.com/blog/2010/04/02/new-ruby-gems/"/>
+    <updated>2010-04-02T16:45:00-03:00</updated>
+    <id>http://dcadenas.github.com/blog/2010/04/02/new-ruby-gems</id>
+    <content type="html"><![CDATA[<p>Oops! It's been a while since the last time I updated my blog.
+I promise I'll try to get back to business and write more often whenever I find some time.</p>
+
+<p>First of all, many months ago I joined <a href="http://cuboxlabs.com">Cubox</a>, a new uruguayan startup that works for many US clients including partnership and offshore work with renowned Rails shops. We are continuously growing and we are always happy to add talented developers to our team so if you are interested and are passionate about Ruby, Rails and agile development just email us.</p>
+
+<p>We believe in open source, we use it in all our projects and we also contribute to the community. Here is an update of my latest new gems which were not covered in this blog. I hope you find them useful, click on the links for more info:</p>
+
+<ul>
+<li><a href="http://github.com/dcadenas/preforker">Preforker</a>: Easily create preforking servers (like Unicorn architecture)</li>
+<li><a href="http://github.com/cubox/rankable_graph">Rankable Graph</a>: Calculates the pagerank of medium sized graphs (some millions of nodes).</li>
+<li><a href="http://github.com/dcadenas/state_pattern">State Pattern</a>: A classical implementation of the state pattern.</li>
+<li><a href="http://github.com/dcadenas/stubborn">Stubborn</a>: Helps finding missing external API stubs in your tests.</li>
+<li><a href="http://github.com/dcadenas/google_set">Google Set</a>: API for Google Sets.</li>
+<li><a href="http://github.com/dcadenas/change_watcher">Change Watcher</a>: Helps keeping a log of changes. Useful to store scraped info from cron scripts.</li>
+</ul>
+
+
+<p>So check them out and contribute!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gem to send mails through Gmail]]></title>
+    <link href="http://dcadenas.github.com/blog/2009/05/22/gem-to-send-mails-through-gmail/"/>
+    <updated>2009-05-22T19:23:00-03:00</updated>
+    <id>http://dcadenas.github.com/blog/2009/05/22/gem-to-send-mails-through-gmail</id>
+    <content type="html"><![CDATA[<p>I made this little gem, <code>gmail_sender</code> that I find useful to log things when I'm running some script in my VPS, I use it for things like this:</p>
+
+<p><code>ruby
+g = GmailSender.new("gmail_account", "password")
+begin
+  #Some interesting script that returns some interesting results in script_results
+  g.send("dcadenas@gmail.com", "It worked!", script_results.to_yaml)
+rescue =&gt; e
+  g.send("dcadenas@gmail.com", "It didn't work :(", "#{e.message}\n#{e.backtrace}")
+  raise e
+end
+</code></p>
+
+<p>So all you need to pass to the <code>send</code> method is an email address, the subject and the email content.</p>
+
+<p>The source code is <a href="http://github.com/dcadenas/gmail_sender/tree/master">here</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[One thing to keep in mind when extending Ruby classes]]></title>
+    <link href="http://dcadenas.github.com/blog/2008/10/06/quirk-to-keep-in-mind-when-extending/"/>
+    <updated>2008-10-06T02:07:00-02:00</updated>
+    <id>http://dcadenas.github.com/blog/2008/10/06/quirk-to-keep-in-mind-when-extending</id>
+    <content type="html"><![CDATA[<p>I was reading this <a href="http://eigenclass.org/hiki/class+hierarchy+introspection+evil.rb">post</a> in Mauricio Fernandez's blog (rcov) and I got surprised about the behavior I'm summarizing in the following code:</p>
+
+<p>```ruby
+class A
+  def foo</p>
+
+<pre><code>"A#foo"
+</code></pre>
+
+<p>  end</p>
+
+<p>  def singleton_class</p>
+
+<pre><code>class &lt;&lt; self
+  self
+end
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>a = A.new
+puts a.foo #=> A#foo
+puts a.singleton_class.ancestors.inspect #=> [A, Object, Kernel]</p>
+
+<p>module X
+  def foo</p>
+
+<pre><code>"X#foo"
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>class A
+  include X
+end</p>
+
+<p>a.extend X
+puts a.foo #=> A#foo (and not X#foo!!!!!!!)
+puts a.singleton_class.ancestors.inspect #=> [A, X, Object, Kernel] (and not [X, A, X, Object, Kernel])
+```</p>
+
+<p>So remember, you cannot extend or include a class with a module that is already present in the ancestors chain, it will be ignored!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[mocha_mock_path error in your tests]]></title>
+    <link href="http://dcadenas.github.com/blog/2008/09/26/mochamockpath-error-in-your-tests/"/>
+    <updated>2008-09-26T12:29:00-03:00</updated>
+    <id>http://dcadenas.github.com/blog/2008/09/26/mochamockpath-error-in-your-tests</id>
+    <content type="html"><![CDATA[<p>If you use stubs in your Mocha tests but they break because of this error:</p>
+
+<p><code>
+ActionView::TemplateError: undefined method `mocha_mock_path'
+</code></p>
+
+<p>Check that you also stub the <code>class</code> method.</p>
+
+<p><code>ruby
+stub(:title =&gt; 'a title', :class =&gt; News)
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
