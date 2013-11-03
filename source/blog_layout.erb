@@ -1,7 +1,6 @@
 <% wrap_layout :layout do %>
-  AAAAAAAAAAA
   <main>
-    <%= yield %>
+    <%= yield if block_given? %>
   </main>
   <aside>
     <h2>Recent Articles</h2>
