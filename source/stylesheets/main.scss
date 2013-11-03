@@ -1,0 +1,71 @@
+@import "normalize";
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "flippable";
+
+@font-face {
+  font-family: 'LeagueGothic';
+  src: url('/fonts/LeagueGothic-Regular.otf');
+}
+
+html {
+  background: url(/images/brooklynbridge.jpg) no-repeat center center fixed; 
+  background-size: cover;
+}
+
+body {
+  @include outer-container;
+  color: white;
+}
+
+.Quarter {
+  @include span-columns(6);
+
+  @include media(max-width 900px 6) {
+    @include span-columns(6);
+  }
+
+  @include omega(2n);
+  margin-top: $gutter;
+  height: 50%;
+}
+
+  .Quarter-header {
+    text-align: center;
+    font-family: 'LeagueGothic';
+    font-size: golden-ratio(1rem, 4);
+    padding: 0;
+  }
+
+$transparency: 0.9;
+$lightbrown: rgba(126, 102, 23, $transparency);
+$middlebrown: rgba(118, 57, 0, $transparency);
+$soliddarkbrown: rgba(94, 39, 1, 1);
+$lightgreen: rgba(61, 67, 28, $transparency);
+$darkgreen: rgba(44, 47, 25, $transparency);
+
+.Bio {
+  background-color: $lightbrown;
+  box-shadow: 15px 15px 25px black;
+}
+
+.Work {
+  background-color: $lightgreen;
+  box-shadow: 15px 15px 25px black;
+}
+
+.Photo {
+  background-color: $darkgreen;
+  box-shadow: 15px 15px 25px black;
+}
+
+.Contact {
+  background-color: $middlebrown;
+  box-shadow: 15px 15px 25px black;
+}
+
+.BackFace {
+  background-color: $soliddarkbrown;
+  color: white;
+  box-shadow: 15px 15px 25px black;
+}
