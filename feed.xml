@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2013-10-21T00:00:00Z</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>Blog Redesign</title>
+    <link rel="alternate" href="http://blog.url.com/2013/10/21/blog-redesign.html"/>
+    <id>http://blog.url.com/2013/10/21/blog-redesign.html</id>
+    <published>2013-10-21T00:00:00Z</published>
+    <updated>2013-11-03T22:09:42-02:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;I'm currently redesigning my blog. Please check back soon!&lt;/p&gt;
+</content>
+  </entry>
+</feed>

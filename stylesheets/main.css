@@ -1,0 +1,531 @@
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+/* line 23, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+/* line 33, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+audio,
+canvas,
+video {
+  display: inline-block; }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 42, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
+ */
+/* line 53, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+[hidden],
+template {
+  display: none; }
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 67, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/**
+ * Remove default margin.
+ */
+/* line 77, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+body {
+  margin: 0; }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+/* line 89, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+a {
+  background: transparent; }
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+/* line 97, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+a:focus {
+  outline: thin dotted; }
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 106, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 119, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+/* line 128, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 137, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+/* line 145, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 153, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 163, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+/* line 175, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+/* line 184, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+pre {
+  white-space: pre-wrap; }
+
+/**
+ * Set consistent quote types.
+ */
+/* line 192, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 200, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 209, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 216, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+sup {
+  top: -0.5em; }
+
+/* line 220, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+sub {
+  bottom: -0.25em; }
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+/* line 232, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+/* line 240, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+/* line 252, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+figure {
+  margin: 0; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 264, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 275, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 289, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 301, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+button,
+input {
+  line-height: normal; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+/* line 313, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+button,
+select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 328, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 338, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+/* line 348, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 359, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 372, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 381, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+/* line 391, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */ }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 404, /Users/daniel/code/dcadenas.github.com/source/stylesheets/normalize.css */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 2, /Users/daniel/code/dcadenas.github.com/source/stylesheets/neat/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 3, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+.Flippable {
+  -webkit-perspective: 900px;
+  -moz-perspective: 900px;
+  perspective: 900px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative; }
+  /* line 11, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+  .Flippable:hover .Flippable-face--front {
+    z-index: -10;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg); }
+  /* line 16, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+  .Flippable:hover .Flippable-face--back {
+    z-index: 0;
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    transform: rotateY(360deg); }
+
+/* line 23, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+.Flippable-face {
+  display: block;
+  height: 100%;
+  width: 100%;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 20px solid white;
+  border-radius: 50px; }
+
+/* line 35, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+.Flippable-face--front {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  z-index: 0; }
+
+/* line 40, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+.Flippable-face--back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  z-index: -10; }
+
+@font-face {
+  font-family: 'LeagueGothic';
+  src: url("/fonts/LeagueGothic-Regular.otf"); }
+
+/* line 11, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+html {
+  background: url(/images/brooklynbridge.jpg) no-repeat center center fixed;
+  background-size: cover; }
+
+/* line 16, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+body {
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  color: white; }
+  /* line 18, /Users/daniel/code/dcadenas.github.com/source/stylesheets/bourbon/addons/_clearfix.scss */
+  body:before, body:after {
+    content: " ";
+    display: table; }
+  /* line 23, /Users/daniel/code/dcadenas.github.com/source/stylesheets/bourbon/addons/_clearfix.scss */
+  body:after {
+    clear: both; }
+
+/* line 21, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+.Quarter {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-top: 1.618em;
+  height: 50%; }
+  /* line 33, /Users/daniel/code/dcadenas.github.com/source/stylesheets/neat/grid/_span-columns.scss */
+  .Quarter:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 900px) {
+    /* line 21, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+    .Quarter {
+      display: block;
+      float: left;
+      margin-right: 4.82916%;
+      width: 100%; }
+      /* line 33, /Users/daniel/code/dcadenas.github.com/source/stylesheets/neat/grid/_span-columns.scss */
+      .Quarter:last-child {
+        margin-right: 0; } }
+  /* line 70, /Users/daniel/code/dcadenas.github.com/source/stylesheets/neat/grid/_omega.scss */
+  .Quarter:nth-child(2n) {
+    margin-right: 0; }
+  /* line 75, /Users/daniel/code/dcadenas.github.com/source/stylesheets/neat/grid/_omega.scss */
+  .Quarter:nth-child(2n+1) {
+    clear: left; }
+
+/* line 33, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+.Quarter-header {
+  text-align: center;
+  font-family: 'LeagueGothic';
+  font-size: 6.85353rem;
+  padding: 0; }
+
+/* line 47, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+.Bio {
+  background-color: rgba(126, 102, 23, 0.9);
+  box-shadow: 15px 15px 25px black; }
+
+/* line 52, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+.Work {
+  background-color: rgba(61, 67, 28, 0.9);
+  box-shadow: 15px 15px 25px black; }
+
+/* line 57, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+.Photo {
+  background-color: rgba(44, 47, 25, 0.9);
+  box-shadow: 15px 15px 25px black; }
+
+/* line 62, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+.Contact {
+  background-color: rgba(118, 57, 0, 0.9);
+  box-shadow: 15px 15px 25px black; }
+
+/* line 67, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+.BackFace {
+  background-color: #5e2701;
+  color: white;
+  box-shadow: 15px 15px 25px black; }
