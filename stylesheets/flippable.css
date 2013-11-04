@@ -1,0 +1,62 @@
+/* line 3, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+.Flippable {
+  -webkit-perspective: 900px;
+  -moz-perspective: 900px;
+  perspective: 900px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative; }
+  /* line 11, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+  .Flippable:hover .Flippable-face--front {
+    z-index: -10;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg); }
+  /* line 16, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+  .Flippable:hover .Flippable-face--back {
+    z-index: 0;
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    transform: rotateY(360deg); }
+
+/* line 23, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+.Flippable-face {
+  display: block;
+  height: 100%;
+  width: 100%;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 20px solid white;
+  border-radius: 50px; }
+
+/* line 35, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+.Flippable-face--front {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  z-index: 0; }
+
+/* line 40, /Users/daniel/code/dcadenas.github.com/source/stylesheets/flippable.scss */
+.Flippable-face--back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  z-index: -10; }
