@@ -455,78 +455,70 @@ html {
   background-size: cover; }
 
 /* line 16, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
-body {
-  *zoom: 1;
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  color: white; }
+main {
+  padding: 1.618em;
+  color: white;
+  *zoom: 1; }
   /* line 18, /Users/daniel/code/dcadenas.github.com/source/stylesheets/bourbon/addons/_clearfix.scss */
-  body:before, body:after {
+  main:before, main:after {
     content: " ";
     display: table; }
   /* line 23, /Users/daniel/code/dcadenas.github.com/source/stylesheets/bourbon/addons/_clearfix.scss */
-  body:after {
+  main:after {
     clear: both; }
 
-/* line 21, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 22, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Quarter {
   display: block;
   float: left;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  margin-top: 1.618em;
-  height: 50%; }
-  /* line 33, /Users/daniel/code/dcadenas.github.com/source/stylesheets/neat/grid/_span-columns.scss */
-  .Quarter:last-child {
-    margin-right: 0; }
+  width: 50%;
+  padding: 1.618em; }
   @media screen and (max-width: 900px) {
-    /* line 21, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+    /* line 22, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
     .Quarter {
-      display: block;
-      float: left;
-      margin-right: 4.82916%;
-      width: 100%; }
-      /* line 33, /Users/daniel/code/dcadenas.github.com/source/stylesheets/neat/grid/_span-columns.scss */
-      .Quarter:last-child {
-        margin-right: 0; } }
-  /* line 70, /Users/daniel/code/dcadenas.github.com/source/stylesheets/neat/grid/_omega.scss */
-  .Quarter:nth-child(2n) {
-    margin-right: 0; }
-  /* line 75, /Users/daniel/code/dcadenas.github.com/source/stylesheets/neat/grid/_omega.scss */
-  .Quarter:nth-child(2n+1) {
-    clear: left; }
+      width: 100%; } }
 
-/* line 33, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
-.Quarter-header {
-  text-shadow: 4px 4px 20px black;
-  text-align: center;
-  font-family: 'LeagueGothic';
-  font-size: 6.85353rem;
-  padding: 0; }
-
-/* line 48, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 41, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Bio {
+  text-align: center;
   background-color: rgba(126, 102, 23, 0.9);
   box-shadow: 15px 15px 25px black; }
 
-/* line 53, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 47, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Work {
+  text-align: center;
   background-color: rgba(61, 67, 28, 0.9);
   box-shadow: 15px 15px 25px black; }
 
-/* line 58, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 53, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Photo {
+  text-align: center;
   background-color: rgba(44, 47, 25, 0.9);
   box-shadow: 15px 15px 25px black; }
 
-/* line 63, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 59, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Contact {
+  text-align: center;
   background-color: rgba(118, 57, 0, 0.9);
   box-shadow: 15px 15px 25px black; }
 
-/* line 68, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 65, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .BackFace {
   background-color: #5e2701;
   color: white;
-  box-shadow: 15px 15px 25px black; }
+  box-shadow: 15px 15px 25px black;
+  padding: 1.618em; }
+
+/* line 72, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+.BackFace-header {
+  text-shadow: 4px 4px 20px black;
+  font-family: 'Helvetica Neue';
+  font-size: 1.618rem; }
+
+/* line 78, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+.h1 {
+  display: inline-block;
+  text-shadow: 4px 4px 20px black;
+  font-family: 'LeagueGothic';
+  font-size: 4.2358rem;
+  padding: 15%; }
