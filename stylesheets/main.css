@@ -499,32 +499,33 @@ body {
 
 /* line 33, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Quarter-header {
+  text-shadow: 4px 4px 20px black;
   text-align: center;
   font-family: 'LeagueGothic';
   font-size: 6.85353rem;
   padding: 0; }
 
-/* line 47, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 48, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Bio {
   background-color: rgba(126, 102, 23, 0.9);
   box-shadow: 15px 15px 25px black; }
 
-/* line 52, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 53, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Work {
   background-color: rgba(61, 67, 28, 0.9);
   box-shadow: 15px 15px 25px black; }
 
-/* line 57, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 58, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Photo {
   background-color: rgba(44, 47, 25, 0.9);
   box-shadow: 15px 15px 25px black; }
 
-/* line 62, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 63, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .Contact {
   background-color: rgba(118, 57, 0, 0.9);
   box-shadow: 15px 15px 25px black; }
 
-/* line 67, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
+/* line 68, /Users/daniel/code/dcadenas.github.com/source/stylesheets/main.scss */
 .BackFace {
   background-color: #5e2701;
   color: white;
